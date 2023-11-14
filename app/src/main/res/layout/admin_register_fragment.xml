@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".AdminRegisterActivity">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/login"
+        android:text="Admin Register"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutCompat"
@@ -32,10 +32,10 @@
         android:paddingEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintVertical_bias="0.448">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="5dp"
-            android:hint="@string/user_id"
+            android:hint="@string/create_your_user_id"
             android:inputType="text" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -71,29 +71,53 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="5dp"
+            android:hint="Enter Your Student ID"
+            android:inputType="text" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat_3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="25dp"
+        android:background="@drawable/login_bg"
+        android:orientation="horizontal"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat"
+        app:layout_constraintVertical_bias="0.341">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="5dp"
             android:hint="@string/password"
             android:inputType="text" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <Button
-        android:id="@+id/sign_in_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/sign_in"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat_2" />
-
-    <Button
         android:id="@+id/sign_up_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/sign_up"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign_in_button" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat_3" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/back_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/my_primary_color"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/baseline_arrow_circle_left_24"
+        app:title="Back"
+        app:titleTextColor="@color/white"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

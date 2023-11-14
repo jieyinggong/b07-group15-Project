@@ -3,6 +3,5 @@
     <style name="Base.Theme.CSCB07Project" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <item name="colorPrimary">@color/my_night_color</item>
-
     </style>
 </resources>

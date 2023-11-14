@@ -6,31 +6,30 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class RegisterActivity extends AppCompatActivity {
+public class AdminRegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register_fragment);
+        setContentView(R.layout.admin_register_fragment);
 
-        //click on back
         findViewById(R.id.back_bar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                //go back to admin register page
+                Intent intent = new Intent(AdminRegisterActivity.this, AdminLoginActivity.class);
+                startActivity(intent);
             }
         });
 
-        //click on sign up
         findViewById(R.id.sign_up_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //go to dashboard fragment
-                Intent intent = new Intent(RegisterActivity.this, Student_dashboardActivity.class);
+                //go back to admin register page
+                Intent intent = new Intent(AdminRegisterActivity.this, Admin_dashboardActivity.class);
                 startActivity(intent);
-
             }
         });
     }
+
 }

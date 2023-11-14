@@ -29,7 +29,7 @@ public class Student_dashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //go to login fragment
-                Intent intent = new Intent(Student_dashboardActivity.this, LoginActivity.class);
+                Intent intent = new Intent(Student_dashboardActivity.this, StudentLoginActivity.class);
                 startActivity(intent);
 
             }
