@@ -6,31 +6,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class RegisterActivity extends AppCompatActivity {
+public class Student_complaintsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register_fragment);
+        setContentView(R.layout.student_complaints_fragment);
 
         //click on back
         findViewById(R.id.back_bar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-            }
-        });
-
-        //click on sign up
-        findViewById(R.id.sign_up_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //go to dashboard fragment
-                Intent intent = new Intent(RegisterActivity.this, Student_dashboardActivity.class);
+                //back to dashboard
+                Intent intent = new Intent(Student_complaintsActivity.this, Student_dashboardActivity.class);
                 startActivity(intent);
-
             }
         });
     }
+
 }

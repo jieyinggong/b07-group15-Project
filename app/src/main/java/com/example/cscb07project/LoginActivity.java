@@ -22,6 +22,16 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.sign_in_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //go to dashboard fragment
+                Intent intent = new Intent(LoginActivity.this, Student_dashboardActivity.class);
+                startActivity(intent);
+
+            }
+        });
     }
 
 }
