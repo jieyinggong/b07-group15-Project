@@ -14,12 +14,12 @@
         android:text="Admin Register"
         android:textSize="40sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayoutCompat"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintVertical_bias="0.3" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linearLayoutCompat"
@@ -32,10 +32,10 @@
         android:paddingEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.448">
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.1">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="5dp"
-            android:hint="@string/create_your_user_id"
+            android:hint="@string/create_your_username"
             android:inputType="text" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="5dp"
-            android:hint="Enter Your Student ID"
+            android:hint="@string/enter_name"
             android:inputType="text" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -87,14 +87,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat"
-        app:layout_constraintVertical_bias="0.341">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat_2"
+        app:layout_constraintVertical_bias="0">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="5dp"
-            android:hint="@string/password"
+            android:hint="@string/create_password"
             android:inputType="text" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 

@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">CSCB07Project</string>
     <string name="login">Login</string>
-    <string name="user_id">User ID</string>
+    <string name="user_name">Username</string>
     <string name="password">Password</string>
     <string name="sign_in">sign in</string>
     <string name="sign_up">sign up</string>
     <string name="register">Register</string>
-    <string name="create_your_user_id">Create Your User ID</string>
+    <string name="create_your_username">Create Your Username</string>
+    <string name="enter_name">Enter Your Name(First, Last)</string>
+    <string name="create_password">Create Your Password</string>
 </resources>
