@@ -1,4 +1,4 @@
-package com.example.b07project.dbOperation;
+package com.example.b07project.dbOperation_o;
 
 public interface DefaultCallback {
     void onSuccess();

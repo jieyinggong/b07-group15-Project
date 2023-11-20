@@ -8,13 +8,9 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.Toast;
-import android.util.Log;
-import java.util.List;
-import java.util.ArrayList;
-import java.lang.Class;
-import com.google.firebase.database.DatabaseReference;
+
 import com.google.firebase.database.FirebaseDatabase;
-import com.example.b07project.dbOperation.*;
+import com.example.b07project.dbOperation_o.*;
  class User{
     public String id;
     public String name;
@@ -31,32 +27,32 @@ import com.example.b07project.dbOperation.*;
  }
 public class FirebaseTestActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_firebase_test);
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_firebase_test);
+//
+//        Button testButton = findViewById(R.id.testButton);
+//        testButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                testFirebaseOperations();
+//            }
+//        });
+//    }
 
-        Button testButton = findViewById(R.id.testButton);
-        testButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                testFirebaseOperations();
-            }
-        });
-    }
-
-    private void testFirebaseOperations() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-
-       // testCreateItem(database);
-        User newUser = new User("123", "Test User");
-        User newUser3 = new User("234", "Test User3");
-        User newUser2 = new User("134", "Test User2");
-
-       // testEditItem(database);
-        //testReadItem(database);
-        testChangesFetcher(database);
-    }
+//    private void testFirebaseOperations() {
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//
+//       // testCreateItem(database);
+//        User newUser = new User("123", "Test User");
+//        User newUser3 = new User("234", "Test User3");
+//        User newUser2 = new User("134", "Test User2");
+//
+//       // testEditItem(database);
+//        //testReadItem(database);
+//        testChangesFetcher(database);
+//    }
 
 //    private void testCreateItem(FirebaseDatabase database) {
 //        CreateItem<User> createItem = new CreateItem<>(database);
@@ -141,38 +137,38 @@ public class FirebaseTestActivity extends AppCompatActivity {
 //        });
 //    }
 
-    private void testChangesFetcher(FirebaseDatabase database) {
-        ChangesFetcher<User> changesFetcher = new ChangesFetcher<>();
+//    private void testChangesFetcher(FirebaseDatabase database) {
+//        ChangesFetcher<User> changesFetcher = new ChangesFetcher<>();
 
-        changesFetcher.FetchChanges(User.class, new ResultCallback<User>() {
-            @Override
-            public void onSuccess(User result) {
-                // 当检测到变化时，此处代码将被执行
-                // 比如，当有新用户被添加或现有用户被更新时
-                showToast("ChangesFetcher: Detected a change in User: " + result.getId());
-            }
+//        changesFetcher.FetchChanges(User.class, new ResultCallback() {
+//            @Override
+//            public void onSuccess(User result) {
+//                // 当检测到变化时，此处代码将被执行
+//                // 比如，当有新用户被添加或现有用户被更新时
+//                showToast("ChangesFetcher: Detected a change in User: " + result.getId());
+//            }
+//
+//            @Override
+//            public void onFailure(Exception e) {
+//                // 如果监听过程中发生错误，此处代码将被执行
+//                showToast("ChangesFetcher: Failed to fetch changes - " + e.getMessage());
+//            }
+//        });
 
-            @Override
-            public void onFailure(Exception e) {
-                // 如果监听过程中发生错误，此处代码将被执行
-                showToast("ChangesFetcher: Failed to fetch changes - " + e.getMessage());
-            }
-        });
-
-        EditItem<User> editItem = new EditItem<>(new DefaultCallback() {
-                        @Override
-            public void onSuccess() {
-                showToast("EditItem: Success");
-            }
-
-            @Override
-            public void onFailure(Exception e) {
-                showToast("EditItem: Failed - " + e.getMessage());
-            }
-        });
-        String userIdToUpdate = "-NjHD35aNFtSwVSIbpqP"; // 假设的用户ID
-        User updatedUser = new User(userIdToUpdate, "650594");
-        editItem.update(userIdToUpdate, updatedUser);
+//        EditItem<User> editItem = new EditItem<>(new DefaultCallback() {
+//                        @Override
+//            public void onSuccess() {
+//                showToast("EditItem: Success");
+//            }
+//
+//            @Override
+//            public void onFailure(Exception e) {
+//                showToast("EditItem: Failed - " + e.getMessage());
+//            }
+//        });
+//        String userIdToUpdate = "-NjHD35aNFtSwVSIbpqP"; // 假设的用户ID
+//        User updatedUser = new User(userIdToUpdate, "650594");
+//        editItem.update(userIdToUpdate, updatedUser);
 
 //        CreateItem<User> createItem = new CreateItem<>(database);
 //
@@ -189,7 +185,7 @@ public class FirebaseTestActivity extends AppCompatActivity {
 //                showToast("CreateItem: Failed - " + e.getMessage());
 //            }
 //    });
-    }
+//    }
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
