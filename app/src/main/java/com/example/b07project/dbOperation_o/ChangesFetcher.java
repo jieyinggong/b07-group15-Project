@@ -13,9 +13,9 @@ import androidx.annotation.NonNull;
 public class ChangesFetcher implements FetchfromChangesOperation {
 
     @Override
-    public void fetchNewitem(String node, ResultCallback<Information> callback) {
+    public void fetchNewitem(String path, ResultCallback<Information> callback) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference itemsRef = ref.child(node);
+        DatabaseReference itemsRef = ref.child(path);
         Query query = itemsRef.limitToLast(1);
         query.addChildEventListener(new ChildEventListener() {
             @Override
@@ -45,9 +45,9 @@ public class ChangesFetcher implements FetchfromChangesOperation {
     });
     }
 
-    public void fetchUpdates(String node, ResultCallback<Information> callback) {
+    public void fetchUpdates(String path, ResultCallback<Information> callback) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference itemsRef = ref.child(node);
+        DatabaseReference itemsRef = ref.child(path);
 
         ValueEventListener listener = new ValueEventListener() {
             @Override

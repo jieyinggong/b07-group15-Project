@@ -7,9 +7,9 @@ import  com.google.firebase.database.ValueEventListener;
 
 public class EditItem implements EditOperation {
 
-    public void update(String id, String nodeName, Information item, DefaultCallback callback){
+    public void update(String id, String path, Information item, DefaultCallback callback){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference itemRef =ref.child(nodeName).child(id);
+        DatabaseReference itemRef =ref.child(path).child(id);
         item.infoID = id;
         ValueEventListener listener = new EditCheckListener(
                 itemRef,
@@ -18,9 +18,9 @@ public class EditItem implements EditOperation {
         );
         itemRef.addListenerForSingleValueEvent(listener);
     }
-    public void delete(String id, String nodeName, DefaultCallback callback){
+    public void delete(String id, String path, DefaultCallback callback){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference itemRef =ref.child(nodeName).child(id);
+        DatabaseReference itemRef =ref.child(path).child(id);
         ValueEventListener listener = new EditCheckListener(
                 itemRef,
                 itemRef::removeValue,  // onSuccess

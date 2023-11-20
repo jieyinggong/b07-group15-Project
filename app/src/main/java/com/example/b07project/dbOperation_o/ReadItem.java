@@ -21,8 +21,8 @@ public class ReadItem implements ReadOperation{
         ref = FirebaseDatabase.getInstance().getReference();
     }
 
-    public void read(String id,String nodeName, ResultCallback<Information> callback){
-        DatabaseReference itemRef =ref.child(nodeName).child(id);
+    public void read(String id,String path, ResultCallback<Information> callback){
+        DatabaseReference itemRef =ref.child(path).child(id);
         itemRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -49,8 +49,8 @@ public class ReadItem implements ReadOperation{
             }
         });
     }
-    public void listAll(String node, ResultCallback<List<Information>> callback) {
-        DatabaseReference itemsRef = ref.child(node);
+    public void listAll(String path, ResultCallback<List<Information>> callback) {
+        DatabaseReference itemsRef = ref.child(path);
         itemsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -65,7 +65,7 @@ public class ReadItem implements ReadOperation{
                     }
                 } else {
                     if (callback != null) {
-                        callback.onFailure(new Exception("No data found in " + node));
+                        callback.onFailure(new Exception("No data found in " + path));
                     }
                 }
             }
