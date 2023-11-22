@@ -11,17 +11,21 @@ import  com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 public class ChangesFetcher implements FetchfromChangesOperation {
+    private ChildEventListener childEventListenerForSingleItem;
+    private ChildEventListener childEventListenerForNewItem;
+    private ValueEventListener valueEventListenerForUpdates;
+    private DatabaseReference itemsRef;
 
     @Override
-    public void fetchNewitem(String path, ResultCallback<Information> callback) {
+    public void fetchSingleNewitem(String path, ResultCallback<Information> callback) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference itemsRef = ref.child(path);
+        itemsRef = ref.child(path);
         Query query = itemsRef.limitToLast(1);
-        query.addChildEventListener(new ChildEventListener() {
+        childEventListenerForSingleItem = new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
                 // 处理新添加的节点
-                Information newItem = dataSnapshot.getValue(Information.class);
+                Information newItem = (Information) dataSnapshot.getValue(Information.class);
                 callback.onSuccess(newItem);
             }
 
@@ -42,21 +46,55 @@ public class ChangesFetcher implements FetchfromChangesOperation {
                 }
 
         }
-    });
+    };
+    query.addChildEventListener(childEventListenerForSingleItem);
+    }
+
+    @Override
+    public void fetchNewitem(String path, ResultCallback<Information> callback) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference itemsRef = ref.child(path);
+        childEventListenerForNewItem = new ChildEventListener(){
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
+                // 处理新添加的节点
+                Information newItem = (Information) dataSnapshot.getValue(Information.class);
+                callback.onSuccess(newItem);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+            }
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                if (callback != null) {
+                    callback.onFailure(databaseError.toException());
+                }
+
+            }
+        };
+        itemsRef.addChildEventListener(childEventListenerForNewItem);
     }
 
     public void fetchUpdates(String path, ResultCallback<Information> callback) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         DatabaseReference itemsRef = ref.child(path);
 
-        ValueEventListener listener = new ValueEventListener() {
+        valueEventListenerForUpdates = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // 检查数据是否存在
                 if (dataSnapshot.exists()) {
                     // 遍历子节点
                     for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-                        Information updatedItem = childSnapshot.getValue(Information.class);
+                        Information updatedItem = (Information) childSnapshot.getValue(Information.class);
                         callback.onSuccess(updatedItem);
                     }
                 } else {
@@ -71,7 +109,20 @@ public class ChangesFetcher implements FetchfromChangesOperation {
             }
         };
 
-        itemsRef.addValueEventListener(listener);
+        itemsRef.addValueEventListener(valueEventListenerForUpdates);
     }
-
+    @Override
+    public void removeListener() {
+        if (itemsRef != null) {
+            if (childEventListenerForSingleItem != null) {
+                itemsRef.removeEventListener(childEventListenerForSingleItem);
+            }
+            if (childEventListenerForNewItem != null) {
+                itemsRef.removeEventListener(childEventListenerForNewItem);
+            }
+            if (valueEventListenerForUpdates != null) {
+                itemsRef.removeEventListener(valueEventListenerForUpdates);
+            }
+        }
+    }
 }

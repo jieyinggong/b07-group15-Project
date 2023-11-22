@@ -4,9 +4,9 @@ import  com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 public  class EditCheckListener implements ValueEventListener {
-    private DatabaseReference ref;
-    private Runnable onSuccess;
-    private DefaultCallback callback;
+    final private DatabaseReference ref;
+    final private Runnable onSuccess;
+    final private DefaultCallback callback;
 
     public EditCheckListener(DatabaseReference ref, Runnable onSuccess, DefaultCallback callback) {
         this.ref = ref;

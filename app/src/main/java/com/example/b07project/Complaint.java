@@ -5,5 +5,9 @@ package com.example.b07project;
             super();
         }
 
+        public Complaint(String subject, String content){
+            super(subject,content);
+        }
+
     }
 

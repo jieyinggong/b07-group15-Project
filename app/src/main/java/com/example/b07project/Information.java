@@ -1,10 +1,10 @@
 package com.example.b07project;
 
-public abstract class Information {
+public class Information {
     public String infoID;
-    protected String subject;
-    protected String content;
-    protected String submitID;
+    public String subject;
+    public String content;
+    public String submitID;
 
     public Information(){}
 

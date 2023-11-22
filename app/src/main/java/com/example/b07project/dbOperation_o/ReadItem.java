@@ -21,6 +21,7 @@ public class ReadItem implements ReadOperation{
         ref = FirebaseDatabase.getInstance().getReference();
     }
 
+    @Override
     public void read(String id,String path, ResultCallback<Information> callback){
         DatabaseReference itemRef =ref.child(path).child(id);
         itemRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -49,15 +50,17 @@ public class ReadItem implements ReadOperation{
             }
         });
     }
+
+    @Override
     public void listAll(String path, ResultCallback<List<Information>> callback) {
         DatabaseReference itemsRef = ref.child(path);
-        itemsRef.addValueEventListener(new ValueEventListener() {
+        itemsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     List<Information> resultList = new ArrayList<>();
                     for (DataSnapshot itemSnapshot : dataSnapshot.getChildren()) {
-                        Information item = itemSnapshot.getValue(Information.class);
+                        Information item = (Information) itemSnapshot.getValue(Information.class);
                         resultList.add(item);
                     }
                     if (callback != null) {
@@ -69,7 +72,6 @@ public class ReadItem implements ReadOperation{
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 if (callback != null) {
