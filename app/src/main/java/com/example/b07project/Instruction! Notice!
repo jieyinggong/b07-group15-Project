@@ -1,0 +1,3 @@
+IMPLEMENT CLASSES: CreateItem, EditItem, ReadItem, ChangesFetche
+Callback Interface: DefaultCallback, ResultCallback
+others are interfaces and helpers!
