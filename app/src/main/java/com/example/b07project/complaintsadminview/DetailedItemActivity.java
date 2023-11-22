@@ -19,7 +19,7 @@ public class DetailedItemActivity extends AppCompatActivity {
 
         String subject = getIntent().getStringExtra("SUBJECT");
         String content = getIntent().getStringExtra("CONTENT");
-        Log.d("DetailedItemActivity", "Received subject: " + subject + ", content: " + content);
+//        Log.d("DetailedItemActivity", "Received subject: " + subject + ", content: " + content);
         TextView subjectTextView = findViewById(R.id.subject_text_view);
         if (subjectTextView != null) {
             subjectTextView.setText("Some Text");
