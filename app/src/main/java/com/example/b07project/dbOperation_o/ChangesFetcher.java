@@ -18,15 +18,14 @@ public class ChangesFetcher implements FetchfromChangesOperation {
     private ValueEventListener valueEventListenerForUpdates;
     private DatabaseReference itemsRef;
 
+
     @Override
-    public void fetchSingleNewitem(String path, ResultCallback<Information> callback) {
+    public void fetchNewitem(String path, ResultCallback<Information> callback) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        itemsRef = ref.child(path);
-        Query query = itemsRef.limitToLast(1);
-        childEventListenerForSingleItem = new ChildEventListener() {
+        DatabaseReference itemsRef = ref.child(path);
+        childEventListenerForNewItem = new ChildEventListener(){
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
-                Log.d("FirebaseListener", "New child added: " + dataSnapshot.getKey());
                 // 处理新添加的节点
                 Information newItem = (Information) dataSnapshot.getValue(Information.class);
                 callback.onSuccess(newItem);
@@ -48,21 +47,22 @@ public class ChangesFetcher implements FetchfromChangesOperation {
                     callback.onFailure(databaseError.toException());
                 }
 
-        }
-    };
-    query.addChildEventListener(childEventListenerForSingleItem);
+            }
+        };
+        itemsRef.addChildEventListener(childEventListenerForNewItem);
     }
 
-    @Override
-    public void fetchNewitem(String path, ResultCallback<Information> callback) {
+    public void fetchNewGeneralitem(String path, Class<?> claz,ResultCallback<Information> callback) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         DatabaseReference itemsRef = ref.child(path);
         childEventListenerForNewItem = new ChildEventListener(){
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
-                // 处理新添加的节点
-                Information newItem = (Information) dataSnapshot.getValue(Information.class);
-                callback.onSuccess(newItem);
+                if (Information.class.isAssignableFrom(claz)) {
+                    // 处理新添加的节点
+                    Information newItem = (Information) dataSnapshot.getValue(claz);
+                    callback.onSuccess(newItem);
+                }
             }
 
             @Override
