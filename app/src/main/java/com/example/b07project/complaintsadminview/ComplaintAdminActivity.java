@@ -27,13 +27,14 @@ public class ComplaintAdminActivity extends AppCompatActivity {
 
     FetchfromChangesOperation fetcher = new ChangesFetcher();
     private boolean isDataLoaded = false;
+    String path = "Complaint";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complaint_admin);
 
         listView = findViewById(R.id.my_list_view);
-        String path = "";
+        String path = "Complaint";
         dataList = new ArrayList<>();
         ReadOperation read = new ReadItem();
         adapter = new InformationAdapter(this, R.layout.list_item_text, dataList);
@@ -46,7 +47,7 @@ public class ComplaintAdminActivity extends AppCompatActivity {
                 if (result != null){
                     for (Information info : result) {
                         if (info != null && info.infoID != null) {
-                            dataList.add(info);
+                            dataList.add(0,info);
                         }
                     }
                 }
@@ -84,14 +85,11 @@ public class ComplaintAdminActivity extends AppCompatActivity {
 //        Complaint info2 = new Complaint("subject2","content111");
 //        dataList.add(0, info2);
 //        adapter.notifyDataSetChanged();
-        fetcher.fetchNewitem("your_data_path", new ResultCallback<Information>() {
+        fetcher.fetchNewitem(path, new ResultCallback<Information>() {
             @Override
             public void onSuccess(Information newItem) {
-                if (newItem instanceof Complaint) {
-                    Complaint newComplaint = (Complaint)newItem;
-                    dataList.add(0, newComplaint);
+                    dataList.add(0, newItem);
                     adapter.notifyDataSetChanged();
-                }
             }
 
             @Override

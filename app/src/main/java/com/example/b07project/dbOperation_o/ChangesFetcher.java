@@ -1,4 +1,6 @@
 package com.example.b07project.dbOperation_o;
+import android.util.Log;
+
 import com.example.b07project.Information;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,6 +26,7 @@ public class ChangesFetcher implements FetchfromChangesOperation {
         childEventListenerForSingleItem = new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
+                Log.d("FirebaseListener", "New child added: " + dataSnapshot.getKey());
                 // 处理新添加的节点
                 Information newItem = (Information) dataSnapshot.getValue(Information.class);
                 callback.onSuccess(newItem);

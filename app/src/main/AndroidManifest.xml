@@ -14,13 +14,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.B07project"
         tools:targetApi="31">
+        <!-- login and sign up -->
         <activity
-            android:name=".complaintsadminview.DetailedItemActivity"
-            android:exported="false"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.B07project" />
+            android:name=".LoginAndSignup.Admin_dashboardActivity"
+            android:exported="false" />
         <activity
-            android:name=".complaintsadminview.ComplaintAdminActivity"
+            android:name=".LoginAndSignup.AdminRegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginAndSignup.AdminLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginAndSignup.Student_dashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginAndSignup.StudentRegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginAndSignup.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginAndSignup.StudentLoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +42,62 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- post checker -->
+        <activity
+            android:name=".postcheckerfixed.statMajor"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.statSpecial"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.statML2"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.statML"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.stat"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.mathSpecial2"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.mathMajor2"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.mathSpecial"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.mathMajor"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.math"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.csMinor"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.csMajor2"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.csMajor"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.csActivity"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.CMSpostMain"
+            android:exported="false" />
+        <!-- complaint -->
+        <activity
+            android:name=".complaints_studentview.StudentComplaint"
+            android:exported="false" />
+        <activity
+            android:name=".complaintsadminview.DetailedItemActivity"
+            android:exported="false" />
+        <activity
+            android:name=".complaintsadminview.ComplaintAdminActivity"
+            android:exported="false"/>
         <activity
             android:name=".FirebaseTestActivity"
             android:exported="false" />
