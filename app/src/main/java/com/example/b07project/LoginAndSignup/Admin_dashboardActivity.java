@@ -26,5 +26,15 @@ public class Admin_dashboardActivity extends AppCompatActivity {
 
             }
         });
+
+        findViewById(R.id.logout).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //go to login fragment
+                Intent intent = new Intent(Admin_dashboardActivity.this, AdminLoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
