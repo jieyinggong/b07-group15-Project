@@ -9,13 +9,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.b07project.Complaint;
-import com.example.b07project.Information;
+import com.example.b07project.main.Complaint;
+import com.example.b07project.main.Information;
 import com.example.b07project.LoginAndSignup.Student_dashboardActivity;
 import com.example.b07project.R;
-import com.example.b07project.dbOperation_o.CreateItem;
-import com.example.b07project.dbOperation_o.CreateOperation;
-import com.example.b07project.dbOperation_o.DefaultCallback;
+import com.example.b07project.dbOperation_Information.CreateItem;
+import com.example.b07project.dbOperation_Information.CreateOperation;
+import com.example.b07project.dbOperation_Information.DefaultCallback;
+import com.example.b07project.main.CheckValidity;
 
 public class StudentComplaint extends AppCompatActivity {
     String title;
@@ -41,34 +42,6 @@ public class StudentComplaint extends AppCompatActivity {
         return content;
     }
 
-
-    /**
-     * it returns true if the number of characters of the title is within the range 1-100
-     * it returns false otherwise
-     */
-    public boolean checkTitleValidity(String title){
-        if (title == null){
-            return false;
-        } else if (title.length() > 100){
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    /**
-     * it returns true if the number of characters of the content is within the range 1-5000
-     * it returns false otherwise
-     */
-    public boolean checkContentValidity(String content){
-        if (content == null){
-            return false;
-        } else if (content.length() > 5000){
-            return false;
-        } else {
-            return true;
-        }
-    }
 
     //when SUBMIT button is clicked, the above code should run:
     //see code in studentComplaintInteractive
@@ -102,7 +75,7 @@ public class StudentComplaint extends AppCompatActivity {
 
     // Method to be performed when the button is clicked
     private void generateTitleAndContent() {
-        if ((checkTitleValidity(generateTitle())) && (checkContentValidity(generateContent()))) {
+        if ((CheckValidity.checkTitleValidity(generateTitle())) && (CheckValidity.checkContentValidity(generateContent()))) {
             CreateOperation newItem = new CreateItem();
             Information complaint = new Complaint(title, content);
             newItem.create("Complaint", complaint, new DefaultCallback() {
@@ -119,9 +92,9 @@ public class StudentComplaint extends AppCompatActivity {
             });
             //save title and content information to the database
             //***************please add database methods here*************
-        } else if (!checkTitleValidity(generateTitle())) {
+        } else if (!CheckValidity.checkTitleValidity(generateTitle())) {
             showToast ("the number of characters of the title must be within 1 to 100");
-        } else if (!checkContentValidity(generateContent())) {
+        } else if (!CheckValidity.checkContentValidity(generateContent())) {
             showToast ("the number of characters of the content must be within 1 to 5000");
         }
     }

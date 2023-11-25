@@ -1,6 +1,8 @@
-package com.example.b07project;
+package com.example.b07project.main;
 
-    public class Complaint extends Information{
+import com.example.b07project.main.Information;
+
+public class Complaint extends Information {
         public Complaint(){
             super();
         }

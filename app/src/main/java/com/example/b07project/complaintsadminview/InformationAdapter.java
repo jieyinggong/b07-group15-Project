@@ -7,8 +7,7 @@ import android.view.LayoutInflater;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.b07project.Complaint;
-import com.example.b07project.Information;
+import com.example.b07project.main.Information;
 import com.example.b07project.R;
 import java.util.List;
 

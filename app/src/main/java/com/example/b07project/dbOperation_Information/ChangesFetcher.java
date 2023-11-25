@@ -1,21 +1,18 @@
-package com.example.b07project.dbOperation_o;
-import android.util.Log;
+package com.example.b07project.dbOperation_Information;
 
-import com.example.b07project.Information;
+import com.example.b07project.main.Information;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.Query;
 import  com.google.firebase.database.ValueEventListener;
 
 
 import androidx.annotation.NonNull;
 public class ChangesFetcher implements FetchfromChangesOperation {
-    private ChildEventListener childEventListenerForSingleItem;
     private ChildEventListener childEventListenerForNewItem;
-    private ValueEventListener valueEventListenerForUpdates;
+    private ValueEventListener childEventListenerForUpdates;
     private DatabaseReference itemsRef;
 
 
@@ -27,7 +24,7 @@ public class ChangesFetcher implements FetchfromChangesOperation {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
                 // 处理新添加的节点
-                Information newItem = (Information) dataSnapshot.getValue(Information.class);
+                Information newItem = dataSnapshot.getValue(Information.class);
                 callback.onSuccess(newItem);
             }
 
@@ -52,21 +49,27 @@ public class ChangesFetcher implements FetchfromChangesOperation {
         itemsRef.addChildEventListener(childEventListenerForNewItem);
     }
 
-    public void fetchNewGeneralitem(String path, Class<?> claz,ResultCallback<Information> callback) {
+
+    public void fetchUpdates(String path, ResultCallback<Information> callback) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         DatabaseReference itemsRef = ref.child(path);
         childEventListenerForNewItem = new ChildEventListener(){
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
-                if (Information.class.isAssignableFrom(claz)) {
-                    // 处理新添加的节点
-                    Information newItem = (Information) dataSnapshot.getValue(claz);
-                    callback.onSuccess(newItem);
-                }
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
+                if (dataSnapshot.exists()) {
+                    // 遍历子节点
+                    for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                        Information updatedItem = childSnapshot.getValue(Information.class);
+                        callback.onSuccess(updatedItem);
+                    }
+                } else {
+                    // 数据不存在时的处理
+                    callback.onFailure(new Exception("No data available"));
+                }
             }
 
             @Override
@@ -86,45 +89,15 @@ public class ChangesFetcher implements FetchfromChangesOperation {
         itemsRef.addChildEventListener(childEventListenerForNewItem);
     }
 
-    public void fetchUpdates(String path, ResultCallback<Information> callback) {
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference itemsRef = ref.child(path);
-
-        valueEventListenerForUpdates = new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // 检查数据是否存在
-                if (dataSnapshot.exists()) {
-                    // 遍历子节点
-                    for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-                        Information updatedItem = (Information) childSnapshot.getValue(Information.class);
-                        callback.onSuccess(updatedItem);
-                    }
-                } else {
-                    // 数据不存在时的处理
-                    callback.onFailure(new Exception("No data available"));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                callback.onFailure(databaseError.toException());
-            }
-        };
-
-        itemsRef.addValueEventListener(valueEventListenerForUpdates);
-    }
     @Override
     public void removeListener() {
         if (itemsRef != null) {
-            if (childEventListenerForSingleItem != null) {
-                itemsRef.removeEventListener(childEventListenerForSingleItem);
-            }
+
             if (childEventListenerForNewItem != null) {
                 itemsRef.removeEventListener(childEventListenerForNewItem);
             }
-            if (valueEventListenerForUpdates != null) {
-                itemsRef.removeEventListener(valueEventListenerForUpdates);
+            if (childEventListenerForUpdates != null) {
+                itemsRef.removeEventListener(childEventListenerForUpdates);
             }
         }
     }

@@ -1,5 +1,5 @@
-package com.example.b07project.dbOperation_o;
-import com.example.b07project.Information;
+package com.example.b07project.dbOperation_Information;
+import com.example.b07project.main.Information;
 
 import java.util.List;
 public interface ReadOperation {

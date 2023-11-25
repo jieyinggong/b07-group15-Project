@@ -1,6 +1,6 @@
-package com.example.b07project.dbOperation_o;
+package com.example.b07project.dbOperation_Information;
 
-import com.example.b07project.Information;
+import com.example.b07project.main.Information;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import  com.google.firebase.database.ValueEventListener;
