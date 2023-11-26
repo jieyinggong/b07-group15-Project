@@ -1,6 +1,6 @@
 package com.example.b07project.main;
 
-public class Annoucement extends Notification {
+public class Annoucement extends Information {
     public Annoucement(){
         super();
     }

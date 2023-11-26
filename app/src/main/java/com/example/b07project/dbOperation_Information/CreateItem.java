@@ -14,7 +14,7 @@ public class CreateItem implements CreateOperation{
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         DatabaseReference ref = db.getReference();
         DatabaseReference newRef = ref.child(path).push();
-        item.getInfoID(newRef.getKey());
+        item.infoID = newRef.getKey();
         newRef.setValue(item)
                 .addOnSuccessListener(v -> {
                     if (callback != null) callback.onSuccess();

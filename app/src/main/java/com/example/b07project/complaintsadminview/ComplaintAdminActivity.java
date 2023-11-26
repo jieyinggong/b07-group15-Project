@@ -32,7 +32,6 @@ public class ComplaintAdminActivity extends AppCompatActivity {
         setContentView(R.layout.activity_complaint_admin);
 
         listView = findViewById(R.id.my_list_view);
-        String path = "Complaint";
         dataList = new ArrayList<>();
         ReadOperation read = new ReadItem();
         adapter = new InformationAdapter(this, R.layout.list_item_text, dataList);
