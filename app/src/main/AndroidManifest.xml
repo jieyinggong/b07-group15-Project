@@ -98,9 +98,10 @@
         <activity
             android:name=".complaintsadminview.ComplaintAdminActivity"
             android:exported="false"/>
+        <!-- admin event -->
         <activity
-            android:name=".FirebaseTestActivity"
-            android:exported="false" />
+            android:name=".everntAdmin.EventAdminActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>

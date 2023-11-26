@@ -75,7 +75,7 @@ public class StudentComplaint extends AppCompatActivity {
 
     // Method to be performed when the button is clicked
     private void generateTitleAndContent() {
-        if ((CheckValidity.checkTitleValidity(generateTitle())) && (CheckValidity.checkContentValidity(generateContent()))) {
+        if ((CheckValidity.checkShortValidity((generateTitle())) && (CheckValidity.checkLongValidity(generateContent())))) {
             CreateOperation newItem = new CreateItem();
             Information complaint = new Complaint(title, content);
             newItem.create("Complaint", complaint, new DefaultCallback() {
@@ -92,9 +92,9 @@ public class StudentComplaint extends AppCompatActivity {
             });
             //save title and content information to the database
             //***************please add database methods here*************
-        } else if (!CheckValidity.checkTitleValidity(generateTitle())) {
+        } else if (!CheckValidity.checkShortValidity(generateTitle())) {
             showToast ("the number of characters of the title must be within 1 to 100");
-        } else if (!CheckValidity.checkContentValidity(generateContent())) {
+        } else if (!CheckValidity.checkLongValidity(generateContent())) {
             showToast ("the number of characters of the content must be within 1 to 5000");
         }
     }
@@ -104,7 +104,5 @@ public class StudentComplaint extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 
-
-    //********************************hengyi li ends****************************************
 }
 

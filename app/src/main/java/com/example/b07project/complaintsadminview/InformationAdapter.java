@@ -32,6 +32,7 @@ public class InformationAdapter extends ArrayAdapter<Information> {
             TextView subjectText = view.findViewById(R.id.item_text);
             if (subjectText != null) {
                 if (info.subject != null) {
+                    if (info.subject == ""){ info.subject = "Empty Subject";}
                     subjectText.setText(info.subject);
                 } else if (info.content != null) {
                     subjectText.setText("Empty Subject");
