@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.b07project.main.Information;
 import com.example.b07project.R;
 import com.example.b07project.dbOperation_Information.*;
+import com.example.b07project.main.InformationAdapter;
 
 
 import java.util.ArrayList;

@@ -102,6 +102,12 @@
         <activity
             android:name=".everntAdmin.EventAdminActivity"
             android:exported="false"/>
+        <!-- student event -->
+        <activity
+            android:name=".ScheduledEvents_studentview.StudentUpcomingEvent"
+            android:exported="false"/>
+        <activity android:name=".ScheduledEvents_studentview.DetailedUpcomingEventActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>

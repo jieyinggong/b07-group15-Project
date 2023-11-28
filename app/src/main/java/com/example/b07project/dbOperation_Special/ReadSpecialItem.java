@@ -62,7 +62,7 @@ public class ReadSpecialItem implements ReadSpecialOperation {
                     List<Information> resultList = new ArrayList<>();
                     for (DataSnapshot itemSnapshot : dataSnapshot.getChildren()) {
                         if (Information.class.isAssignableFrom(claz)) {
-                            Information item = (Information) dataSnapshot.getValue(claz);
+                            Information item = (Information) itemSnapshot.getValue(claz);
                             resultList.add(item);
                     }
                     if (callback != null) {

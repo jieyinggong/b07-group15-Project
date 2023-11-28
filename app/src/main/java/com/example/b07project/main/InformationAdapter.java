@@ -1,4 +1,4 @@
-package com.example.b07project.complaintsadminview;
+package com.example.b07project.main;
 
 import android.content.Context;
 import android.view.View;
@@ -23,22 +23,18 @@ public class InformationAdapter extends ArrayAdapter<Information> {
 
         if (view == null) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            view = inflater.inflate(R.layout.list_item_text, null);
+            view = inflater.inflate(R.layout.list_item_text, parent, false);
         }
 
         Information info = getItem(position);
 
         if (info != null) {
             TextView subjectText = view.findViewById(R.id.item_text);
-            if (subjectText != null) {
-                if (info.subject != null) {
-                    if (info.subject == ""){ info.subject = "Empty Subject";}
+            if (subjectText != null && info.subject != null) {
+//                    if (info.subject.equals("")){ info.subject = "Empty Subject";}
                     subjectText.setText(info.subject);
-                } else if (info.content != null) {
-                    subjectText.setText("Empty Subject");
                 }
             }
-        }
         return view;
     }
 }

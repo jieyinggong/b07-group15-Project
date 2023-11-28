@@ -2,7 +2,7 @@ package com.example.b07project.main;
 
 public class Feedback extends Information{
     int numericRating;
-    String EventID;
+    public String EventID;
     public Feedback(){
         super();
     }
