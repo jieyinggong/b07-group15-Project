@@ -51,7 +51,6 @@ public class StudentUpcomingEvent extends AppCompatActivity {
                 dataList.clear();
                 if (result != null) {
                    ListEvent(result);
-                   Log.d("Event","listAll success!" + result.size());
                 }
                 adapter.notifyDataSetChanged();
                 isDataLoaded = true;
@@ -86,7 +85,6 @@ public class StudentUpcomingEvent extends AppCompatActivity {
             @Override
             public void onSuccess(Information newItem) {
                AddCheckedEvent(newItem);
-                Log.d("Event","fetch success!");
                adapter.notifyDataSetChanged();
             }
 

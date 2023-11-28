@@ -26,7 +26,6 @@ public class ChangesSpecialFetch implements FetchSpecialChangesOperation {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
                 if (Information.class.isAssignableFrom(claz)) {
-                    Log.d("TAG", "onChildAdded: fetch success!");
                     // 处理新添加的节点
                     Information newItem = (Information) dataSnapshot.getValue(claz);
                     callback.onSuccess(newItem);
