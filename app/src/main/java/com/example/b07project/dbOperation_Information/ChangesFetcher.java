@@ -12,14 +12,14 @@ import  com.google.firebase.database.ValueEventListener;
 import androidx.annotation.NonNull;
 public class ChangesFetcher implements FetchfromChangesOperation {
     private ChildEventListener childEventListenerForNewItem;
-    private ValueEventListener childEventListenerForUpdates;
+    private ChildEventListener childEventListenerForUpdates;
     private DatabaseReference itemsRef;
 
 
     @Override
     public void fetchNewitem(String path, ResultCallback<Information> callback) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference itemsRef = ref.child(path);
+        itemsRef = ref.child(path);
         childEventListenerForNewItem = new ChildEventListener(){
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
@@ -52,8 +52,8 @@ public class ChangesFetcher implements FetchfromChangesOperation {
 
     public void fetchUpdates(String path, ResultCallback<Information> callback) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference itemsRef = ref.child(path);
-        childEventListenerForNewItem = new ChildEventListener(){
+        itemsRef = ref.child(path);
+        childEventListenerForUpdates = new ChildEventListener(){
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
             }
@@ -86,7 +86,7 @@ public class ChangesFetcher implements FetchfromChangesOperation {
 
             }
         };
-        itemsRef.addChildEventListener(childEventListenerForNewItem);
+        itemsRef.addChildEventListener(childEventListenerForUpdates);
     }
 
     @Override

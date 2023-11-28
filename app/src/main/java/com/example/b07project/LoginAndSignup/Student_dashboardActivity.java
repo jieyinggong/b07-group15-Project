@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.b07project.R;
+import com.example.b07project.ScheduledEvents_studentview.StudentUpcomingEvent;
 import com.example.b07project.complaints_studentview.StudentComplaint;
 import com.example.b07project.complaints_studentview.Student_complaintsActivity;
 import com.example.b07project.postcheckerfixed.CMSpostMain;
@@ -26,6 +27,15 @@ public class Student_dashboardActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //go to submit fragment
                 Intent intent = new Intent(Student_dashboardActivity.this, CMSpostMain.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.events).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //go to login fragment
+                Intent intent = new Intent(Student_dashboardActivity.this, StudentUpcomingEvent.class);
                 startActivity(intent);
             }
         });

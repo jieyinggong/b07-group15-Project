@@ -1,5 +1,7 @@
 package com.example.b07project.dbOperation_Special;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.example.b07project.main.Information;
@@ -13,17 +15,18 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ChangesSpecialFetch implements FetchSpecialChangesOperation {
     private ChildEventListener childEventListenerForNewItem;
-    private ValueEventListener childEventListenerForUpdates;
+    private ChildEventListener childEventListenerForUpdates;
     private DatabaseReference itemsRef;
 
     @Override
     public void fetchNewSpecialitem(String path, Class<?> claz,ResultCallback<Information> callback) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference itemsRef = ref.child(path);
+        itemsRef = ref.child(path);
         childEventListenerForNewItem = new ChildEventListener(){
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
                 if (Information.class.isAssignableFrom(claz)) {
+                    Log.d("TAG", "onChildAdded: fetch success!");
                     // 处理新添加的节点
                     Information newItem = (Information) dataSnapshot.getValue(claz);
                     callback.onSuccess(newItem);
@@ -53,9 +56,9 @@ public class ChangesSpecialFetch implements FetchSpecialChangesOperation {
 
     public void fetchUpdates(String path, Class<?> claz, ResultCallback<Information> callback) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference itemsRef = ref.child(path);
+        itemsRef = ref.child(path);
 
-        childEventListenerForNewItem = new ChildEventListener(){
+        childEventListenerForUpdates = new ChildEventListener(){
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
             }
@@ -89,7 +92,7 @@ public class ChangesSpecialFetch implements FetchSpecialChangesOperation {
 
             }
         };
-        itemsRef.addChildEventListener(childEventListenerForNewItem);
+        itemsRef.addChildEventListener(childEventListenerForUpdates);
     }
     @Override
     public void removeListener() {

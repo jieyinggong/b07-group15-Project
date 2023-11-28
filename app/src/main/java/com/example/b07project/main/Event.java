@@ -13,7 +13,6 @@ public class Event extends Information{
 
     public Event(){
         super();
-        CurrentAvailableSpace = 0;
     };
 
 }
