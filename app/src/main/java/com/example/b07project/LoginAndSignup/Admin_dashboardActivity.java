@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.example.b07project.R;
 import com.example.b07project.complaintsadminview.ComplaintAdminActivity;
-import com.example.b07project.everntAdmin.EventAdminActivity;
+import com.example.b07project.EventAdmin.EventAdminActivity;
 
 public class Admin_dashboardActivity extends AppCompatActivity {
 
