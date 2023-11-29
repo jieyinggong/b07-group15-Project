@@ -23,7 +23,7 @@ import com.example.b07project.dbOperation_Information.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentUpcomingEvent extends AppCompatActivity {
+public class StudentUpcomingEventActivity extends AppCompatActivity {
     private ListView listView;
     private EventAdapter adapter;
     private List<Event> dataList; //要显示的东西
@@ -63,11 +63,11 @@ public class StudentUpcomingEvent extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (!isDataLoaded) {
-                    Toast.makeText(StudentUpcomingEvent.this, "Data is still loading, please wait.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StudentUpcomingEventActivity.this, "Data is still loading, please wait.", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Event event = dataList.get(position);
-                Intent intent = new Intent(StudentUpcomingEvent.this, DetailedUpcomingEventActivity.class);
+                Intent intent = new Intent(StudentUpcomingEventActivity.this, DetailedUpcomingEventActivity.class);
                 intent.putExtra("EVENTID", event.infoID);
                 startActivity(intent);
             }
@@ -88,9 +88,10 @@ public class StudentUpcomingEvent extends AppCompatActivity {
 
             @Override
             public void onFailure(Exception e) {
-                Toast.makeText(StudentUpcomingEvent.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(StudentUpcomingEventActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     protected void onPause(){

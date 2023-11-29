@@ -27,6 +27,16 @@ public class Event extends Information{
             dataList.add(0, event);
         }
     }
+
+    public boolean eventNotStart() {
+        try {
+            Calendar startTime = ParseToCalendar.parseStringToCalendar(this.startDateTime);
+            return Calendar.getInstance().before(startTime);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
     public boolean eventInProgress() {
         try {
             Calendar startTime = ParseToCalendar.parseStringToCalendar(this.startDateTime);

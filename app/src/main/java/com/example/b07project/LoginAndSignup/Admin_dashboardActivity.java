@@ -6,9 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.b07project.EventAdmin.EventHistoryActivity;
 import com.example.b07project.R;
 import com.example.b07project.complaints_adminview.ComplaintAdminActivity;
-import com.example.b07project.everntAdmin.EventAdminActivity;
+import com.example.b07project.EventAdmin.EventAdminActivity;
 
 public class Admin_dashboardActivity extends AppCompatActivity {
 
@@ -34,6 +35,16 @@ public class Admin_dashboardActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //go to submit fragment
                 Intent intent = new Intent(Admin_dashboardActivity.this, EventAdminActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        findViewById(R.id.events_history).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //go to submit fragment
+                Intent intent = new Intent(Admin_dashboardActivity.this, EventHistoryActivity.class);
                 startActivity(intent);
 
             }

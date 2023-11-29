@@ -67,18 +67,14 @@ public class EventHistoryActivity extends AppCompatActivity {
                     return;
                 }
                 Event event = dataList.get(position);
-                Intent intent = new Intent(EventHistoryActivity.this, DetailedEventHistory.class);
-                intent.putExtra("EVENTID", event.infoID);
-                startActivity(intent);
+               intendCases(event);
             }
         });
     }
 
     protected void onResume() {
         super.onResume();
-//        Complaint info2 = new Complaint("subject2","content111");
-//        dataList.add(0, info2);
-//        adapter.notifyDataSetChanged();
+        adapter.clear();
         fetcher.fetchNewSpecialitem(path, Event.class, new ResultCallback<Information>() {
             @Override
             public void onSuccess(Information newItem) {
@@ -107,6 +103,18 @@ public class EventHistoryActivity extends AppCompatActivity {
         if (info instanceof Event && info.infoID != null) {
             Event event = (Event) info;
             dataList.add(0, event);
+        }
+    }
+
+    public void intendCases(Event event){
+        if (event.eventNotStart()){
+            Intent intent = new Intent(EventHistoryActivity.this, DetailedUpcomingEventActivity.class);
+            intent.putExtra("EVENTID", event.infoID);
+            startActivity(intent);
+        }else{
+            Intent intent = new Intent(EventHistoryActivity.this, DetailedEventHistory.class);
+            intent.putExtra("EVENTID", event.infoID);
+            startActivity(intent);
         }
     }
 }

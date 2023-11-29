@@ -53,6 +53,7 @@ public class FeedbackAdmin extends AppCompatActivity {
         readSpecialItem.listAllSpecial(path, Feedback.class, new ResultCallback<List<Information>>() {
             @Override
             public void onSuccess(List<Information> result) {
+                feedbacks.clear();
                 int totalrates = 0;
                 for (Information info : result) {
                     if (info instanceof Feedback) {

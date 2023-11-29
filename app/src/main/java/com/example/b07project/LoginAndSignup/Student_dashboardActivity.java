@@ -7,10 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.b07project.R;
-import com.example.b07project.ScheduledEvents_studentview.StudentScheduledEvent;
-import com.example.b07project.ScheduledEvents_studentview.StudentUpcomingEvent;
+import com.example.b07project.ScheduledEvents_studentview.StudentScheduledEventActivity;
+import com.example.b07project.ScheduledEvents_studentview.StudentUpcomingEventActivity;
 import com.example.b07project.complaints_studentview.StudentComplaint;
-import com.example.b07project.complaints_studentview.Student_complaintsActivity;
 import com.example.b07project.postcheckerfixed.CMSpostMain;
 
 public class Student_dashboardActivity extends AppCompatActivity {
@@ -36,7 +35,7 @@ public class Student_dashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //go to login fragment
-                Intent intent = new Intent(Student_dashboardActivity.this, StudentUpcomingEvent.class);
+                Intent intent = new Intent(Student_dashboardActivity.this, StudentUpcomingEventActivity.class);
                 startActivity(intent);
             }
         });
@@ -46,7 +45,7 @@ public class Student_dashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //go to submit fragment
-                Intent intent = new Intent(Student_dashboardActivity.this, StudentScheduledEvent.class);
+                Intent intent = new Intent(Student_dashboardActivity.this, StudentScheduledEventActivity.class);
                 startActivity(intent);
             }
         });
