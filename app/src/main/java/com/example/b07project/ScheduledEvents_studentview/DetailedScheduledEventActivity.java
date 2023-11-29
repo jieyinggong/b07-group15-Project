@@ -6,21 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.b07project.R;
-import com.example.b07project.dbOperation_Information.ReadItem;
-import com.example.b07project.dbOperation_Information.ReadOperation;
 import com.example.b07project.dbOperation_Information.ResultCallback;
 import com.example.b07project.dbOperation_Special.ReadSpecialItem;
 import com.example.b07project.dbOperation_Special.ReadSpecialOperation;
 import com.example.b07project.main.Event;
 import com.example.b07project.main.Information;
+import com.example.b07project.main.ParseToCalendar;
 
-import java.util.Locale;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.text.ParseException;
 
@@ -87,14 +83,14 @@ public class DetailedScheduledEventActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     String endTimeString = endTextView.getText().toString();
-                    Calendar endTime = parseStringToCalendar(endTimeString);
+                    Calendar endTime = ParseToCalendar.parseStringToCalendar(endTimeString);
 
                     if (Calendar.getInstance().after(endTime)) {
                         Intent intent = new Intent(DetailedScheduledEventActivity.this, Feedback_StudentActivity.class);
                         intent.putExtra("EVENTID", eventid);
                         startActivity(intent);
                     }else{
-                        showToast("Can't give feedback for event that hasn't ended!");
+                        Toast.makeText(getApplicationContext(), "Can't give feedback for event that hasn't ended!", Toast.LENGTH_SHORT).show();
                     }
                 } catch (ParseException e) {
                     e.printStackTrace();
@@ -104,14 +100,4 @@ public class DetailedScheduledEventActivity extends AppCompatActivity {
 
     }
 
-    private Calendar parseStringToCalendar(String timeString) throws ParseException {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(dateFormat.parse(timeString));
-        return calendar;
-    }
-
-    private void showToast(String message) {
-        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-    }
 }

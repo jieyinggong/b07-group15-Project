@@ -3,6 +3,7 @@ package com.example.b07project.LoginAndSignup;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -83,8 +84,8 @@ public class AdminLoginActivity extends AppCompatActivity {
 //                        @Override
 //                        public void onClick(View v) {
 //                            //go to admin dashboard page
-                            Intent intent = new Intent(AdminLoginActivity.this, Admin_dashboardActivity.class);
-                            startActivity(intent);
+                    Intent intent = new Intent(AdminLoginActivity.this, Admin_dashboardActivity.class);
+                    startActivity(intent);
 //                        }
 //                    });
                 } else {
@@ -109,6 +110,5 @@ public class AdminLoginActivity extends AppCompatActivity {
             throw new RuntimeException("Unable to hash password", e);
         }
     }
-
 
 }

@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.b07project.R;
-import com.example.b07project.complaintsadminview.ComplaintAdminActivity;
-import com.example.b07project.EventAdmin.EventAdminActivity;
+import com.example.b07project.complaints_adminview.ComplaintAdminActivity;
+import com.example.b07project.everntAdmin.EventAdminActivity;
 
 public class Admin_dashboardActivity extends AppCompatActivity {
 

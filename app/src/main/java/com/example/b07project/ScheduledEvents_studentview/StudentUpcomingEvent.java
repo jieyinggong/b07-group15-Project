@@ -10,8 +10,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.b07project.complaintsadminview.ComplaintAdminActivity;
-import com.example.b07project.complaintsadminview.DetailedItemActivity;
 import com.example.b07project.dbOperation_Special.ChangesSpecialFetch;
 import com.example.b07project.dbOperation_Special.FetchSpecialChangesOperation;
 import com.example.b07project.dbOperation_Special.ReadSpecialItem;
@@ -20,7 +18,6 @@ import com.example.b07project.main.Event;
 import com.example.b07project.main.Information;
 import com.example.b07project.R;
 import com.example.b07project.dbOperation_Information.*;
-import com.example.b07project.main.InformationAdapter;
 
 
 import java.util.ArrayList;
@@ -81,10 +78,11 @@ public class StudentUpcomingEvent extends AppCompatActivity {
 //        Complaint info2 = new Complaint("subject2","content111");
 //        dataList.add(0, info2);
 //        adapter.notifyDataSetChanged();
+        adapter.clear();
         fetcher.fetchNewSpecialitem(path, Event.class, new ResultCallback<Information>() {
             @Override
             public void onSuccess(Information newItem) {
-               AddCheckedEvent(newItem);
+               Event.AddCheckedEvent(newItem, dataList);
                adapter.notifyDataSetChanged();
             }
 
@@ -103,15 +101,8 @@ public class StudentUpcomingEvent extends AppCompatActivity {
 
     public void ListEvent(List<Information> result){
         for (Information info : result) {
-            AddCheckedEvent(info);
+            Event.AddCheckedEvent(info, dataList);
             }
-    }
-
-    public void AddCheckedEvent(Information info){
-        if (info instanceof Event && info.infoID != null) {
-            Event event = (Event) info;
-            dataList.add(0, event);
-        }
     }
 
 

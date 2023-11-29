@@ -1,4 +1,4 @@
-package com.example.b07project.complaintsadminview;
+package com.example.b07project.complaints_adminview;
 
 import androidx.appcompat.app.AppCompatActivity;
 
