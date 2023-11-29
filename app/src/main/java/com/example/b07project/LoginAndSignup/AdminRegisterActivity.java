@@ -48,27 +48,43 @@ public class AdminRegisterActivity extends AppCompatActivity {
         String username = usernameField.getText().toString().trim();
         String fullName = nameField.getText().toString().trim();
         String password = passwordField.getText().toString().trim();
-        // Basic validation
-        if(username.isEmpty() || fullName.isEmpty() || password.isEmpty()) {
-            Toast.makeText(AdminRegisterActivity.this, "Please fill in all fields", Toast.LENGTH_LONG).show();
+
+        if (username.isEmpty() || fullName.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_LONG).show();
             return;
         }
 
-        // Hash the password
+        // Check if username is unique
+        checkUsernameUnique(username, fullName, password);
+    }
+
+    private void checkUsernameUnique(String username, String fullName, String password) {
+        mDatabase.child("admins").child(username).get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                if (task.getResult().exists()) {
+                    Toast.makeText(AdminRegisterActivity.this, "Username already taken. Please choose another.", Toast.LENGTH_LONG).show();
+                } else {
+                    // Username is unique, proceed to register the admin
+                    registerNewAdmin(username, fullName, password);
+                }
+            } else {
+                Toast.makeText(AdminRegisterActivity.this, "Failed to check username uniqueness.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void registerNewAdmin(String username, String fullName, String password) {
         String hashedPassword = hashPassword(password);
 
-        // Store user data in Realtime Database
         Admin admin = new Admin(username, fullName, hashedPassword);
         mDatabase.child("admins").child(username).setValue(admin)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        // Registration success
                         Toast.makeText(AdminRegisterActivity.this, "Registration successful.", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(AdminRegisterActivity.this, Admin_dashboardActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
-                        // Registration failure
                         Toast.makeText(AdminRegisterActivity.this, "Registration failed.", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -84,5 +100,4 @@ public class AdminRegisterActivity extends AppCompatActivity {
             throw new RuntimeException("Unable to hash password", e);
         }
     }
-
 }

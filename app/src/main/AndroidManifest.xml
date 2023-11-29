@@ -93,10 +93,10 @@
             android:name=".complaints_studentview.StudentComplaint"
             android:exported="false" />
         <activity
-            android:name=".complaintsadminview.DetailedItemActivity"
+            android:name=".complaints_adminview.DetailedItemActivity"
             android:exported="false" />
         <activity
-            android:name=".complaintsadminview.ComplaintAdminActivity"
+            android:name=".complaints_adminview.ComplaintAdminActivity"
             android:exported="false"/>
         <!-- admin event -->
         <activity
@@ -107,6 +107,13 @@
             android:name=".ScheduledEvents_studentview.StudentUpcomingEvent"
             android:exported="false"/>
         <activity android:name=".ScheduledEvents_studentview.DetailedUpcomingEventActivity"
+            android:exported="false"/>
+        <activity android:name=".ScheduledEvents_studentview.StudentScheduledEvent"
+            android:exported="false"/>
+        <activity android:name=".ScheduledEvents_studentview.DetailedScheduledEventActivity"
+            android:exported="false"/>
+        <!-- student feedback -->
+        <activity android:name=".ScheduledEvents_studentview.Feedback_StudentActivity"
             android:exported="false"/>
     </application>
 

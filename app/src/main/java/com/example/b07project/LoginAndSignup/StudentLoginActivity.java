@@ -1,17 +1,18 @@
 package com.example.b07project.LoginAndSignup;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.example.b07project.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
+import com.google.firebase.database.ValueEventListener;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -26,13 +27,10 @@ public class StudentLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_login_fragment);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("students");
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        // Initialize EditText fields
-        usernameField = findViewById(R.id.usernameEditText); // Replace with actual ID from your layout
-        passwordField = findViewById(R.id.passwordEditText); // Replace with actual ID from your layout
-
-        // Click on sign up
+        usernameField = findViewById(R.id.usernameEditText);
+        passwordField = findViewById(R.id.passwordEditText);
         findViewById(R.id.sign_up_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,34 +61,36 @@ public class StudentLoginActivity extends AppCompatActivity {
     }
 
     private void signIn() {
-        final String username = usernameField.getText().toString().trim();
-        final String password = passwordField.getText().toString().trim();
+        String username = usernameField.getText().toString().trim();
+        String password = passwordField.getText().toString().trim();
 
         if (username.isEmpty() || password.isEmpty()) {
-            Toast.makeText(StudentLoginActivity.this, "Please enter both username and password", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please enter both username and password", Toast.LENGTH_LONG).show();
             return;
         }
 
-        // Hash the password to compare with the database
-        final String hashedPassword = hashPassword(password);
+        String hashedPassword = hashPassword(password);
 
-        // Query the database for the username
-        mDatabase.child("students").child(username).get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                Student student = task.getResult().getValue(Student.class);
+        mDatabase.child("students").child(username).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Student student = dataSnapshot.getValue(Student.class);
                 if (student != null && student.passwordHash.equals(hashedPassword)) {
-                    // Correct password
-                    Toast.makeText(StudentLoginActivity.this, "Login successful.", Toast.LENGTH_SHORT).show();
-                    // Navigate to the Student Dashboard
+                    Toast.makeText(StudentLoginActivity.this, "Authentication successful.", Toast.LENGTH_SHORT).show();
+                    SharedPreferences studentPreference = getSharedPreferences("StudentPref", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = studentPreference.edit();
+                    editor.putString("username",username);
+                    editor.apply();
                     Intent intent = new Intent(StudentLoginActivity.this, Student_dashboardActivity.class);
                     startActivity(intent);
-//                    finish();
                 } else {
-                    // Incorrect password or username doesn't exist
-                    Toast.makeText(StudentLoginActivity.this, "Login failed. Incorrect username or password.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(StudentLoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                 }
-            } else {
-                Toast.makeText(StudentLoginActivity.this, "Failed to query database.", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(StudentLoginActivity.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -98,27 +98,19 @@ public class StudentLoginActivity extends AppCompatActivity {
     private String hashPassword(String password) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            digest.reset();
-            digest.update(password.getBytes("utf8"));
-            return String.format("%064x", new BigInteger(1, digest.digest()));
-        } catch (NoSuchAlgorithmException | java.io.UnsupportedEncodingException e) {
-            throw new RuntimeException("Unable to hash password", e);
+            byte[] hash = digest.digest(password.getBytes("UTF-8"));
+            StringBuilder hexString = new StringBuilder();
+
+            for (int i = 0; i < hash.length; i++) {
+                String hex = Integer.toHexString(0xff & hash[i]);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch (Exception ex) {
+            throw new RuntimeException("Error hashing password", ex);
         }
     }
-    // Student class (make sure this matches the structure you're using in Firebase)
 
-    static class Student {
-        public String username;
-        public String fullName;
-        public String passwordHash;
-
-        public Student() {
-        }
-
-        public Student(String username, String fullName, String passwordHash) {
-            this.username = username;
-            this.fullName = fullName;
-            this.passwordHash = passwordHash;
-        }
-    }
 }

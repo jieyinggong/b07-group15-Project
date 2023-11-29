@@ -1,5 +1,7 @@
 package com.example.b07project.dbOperation_Information;
 
+import android.util.Log;
+
 import com.example.b07project.main.Information;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,6 +27,7 @@ public class ChangesFetcher implements FetchfromChangesOperation {
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
                 // 处理新添加的节点
                 Information newItem = dataSnapshot.getValue(Information.class);
+                Log.i("TAG", "onChildAdded: fetch success");
                 callback.onSuccess(newItem);
             }
 
@@ -95,9 +98,12 @@ public class ChangesFetcher implements FetchfromChangesOperation {
 
             if (childEventListenerForNewItem != null) {
                 itemsRef.removeEventListener(childEventListenerForNewItem);
+                childEventListenerForNewItem = null;
+                Log.i("TAG", "removeListener: remove ");
             }
             if (childEventListenerForUpdates != null) {
                 itemsRef.removeEventListener(childEventListenerForUpdates);
+                childEventListenerForUpdates = null;
             }
         }
     }
