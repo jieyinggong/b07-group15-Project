@@ -14,7 +14,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.B07project"
         tools:targetApi="31">
-        <!-- login and sign up -->
+        <activity
+            android:name=".EventAdmin.DetailedFeedbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EventAdmin.FeedbackList"
+            android:exported="false" />
+        <activity
+            android:name=".EventAdmin.FeedbackAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".EventAdmin.DetailedEventHistory"
+            android:exported="false" />
+        <activity
+            android:name=".EventAdmin.EventHistoryActivity"
+            android:exported="false" /> <!-- login and sign up -->
         <activity
             android:name=".LoginAndSignup.Admin_dashboardActivity"
             android:exported="false" />
@@ -41,8 +55,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!-- post checker -->
+        </activity> <!-- post checker -->
         <activity
             android:name=".postcheckerfixed.statMajor"
             android:exported="false" />
@@ -87,8 +100,7 @@
             android:exported="false" />
         <activity
             android:name=".postcheckerfixed.CMSpostMain"
-            android:exported="false" />
-        <!-- complaint -->
+            android:exported="false" /> <!-- complaint -->
         <activity
             android:name=".complaints_studentview.StudentComplaint"
             android:exported="false" />
@@ -96,13 +108,13 @@
             android:name=".complaints_adminview.DetailedItemActivity"
             android:exported="false" />
         <activity
+        <!-- admin event -->
             android:name=".complaints_adminview.ComplaintAdminActivity"
             android:exported="false"/>
         <!-- admin event -->
         <activity
-            android:name=".everntAdmin.EventAdminActivity"
-            android:exported="false"/>
-        <!-- student event -->
+            android:name=".EventAdmin.EventAdminActivity"
+            android:exported="false" /> <!-- student event -->
         <activity
             android:name=".ScheduledEvents_studentview.StudentUpcomingEvent"
             android:exported="false"/>
