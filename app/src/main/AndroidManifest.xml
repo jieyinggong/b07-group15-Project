@@ -107,20 +107,24 @@
         <activity
             android:name=".complaints_adminview.DetailedItemActivity"
             android:exported="false" />
-        <activity
         <!-- admin event -->
+        <activity
             android:name=".complaints_adminview.ComplaintAdminActivity"
+            android:exported="false"/>
+        <activity android:name=".EventAdmin.DetailedUpcomingEventActivity"
+            android:exported="false"/>
+        <activity android:name=".EventAdmin.EditEventActivity"
             android:exported="false"/>
         <!-- admin event -->
         <activity
             android:name=".EventAdmin.EventAdminActivity"
             android:exported="false" /> <!-- student event -->
         <activity
-            android:name=".ScheduledEvents_studentview.StudentUpcomingEvent"
+            android:name=".ScheduledEvents_studentview.StudentUpcomingEventActivity"
             android:exported="false"/>
         <activity android:name=".ScheduledEvents_studentview.DetailedUpcomingEventActivity"
             android:exported="false"/>
-        <activity android:name=".ScheduledEvents_studentview.StudentScheduledEvent"
+        <activity android:name=".ScheduledEvents_studentview.StudentScheduledEventActivity"
             android:exported="false"/>
         <activity android:name=".ScheduledEvents_studentview.DetailedScheduledEventActivity"
             android:exported="false"/>

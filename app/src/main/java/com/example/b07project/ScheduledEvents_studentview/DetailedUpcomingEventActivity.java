@@ -15,6 +15,8 @@ import com.example.b07project.R;
 import com.example.b07project.dbOperation_Information.CreateItem;
 import com.example.b07project.dbOperation_Information.CreateOperation;
 import com.example.b07project.dbOperation_Information.DefaultCallback;
+import com.example.b07project.dbOperation_Information.EditItem;
+import com.example.b07project.dbOperation_Information.EditOperation;
 import com.example.b07project.dbOperation_Information.ResultCallback;
 import com.example.b07project.dbOperation_Special.ReadSpecialItem;
 import com.example.b07project.dbOperation_Special.ReadSpecialOperation;
@@ -95,8 +97,24 @@ public class DetailedUpcomingEventActivity extends AppCompatActivity {
         findViewById(R.id.RSVP).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (event.CurrentAvailableSpace == 0){
+                    showToast("The number of participant is full!");
+                    return;
+                }
                 if (checkEventTime(Calendar.getInstance(),event)){
-                    addScheduledEventToPath(event);
+                    event.CurrentAvailableSpace -= 1;
+                    EditOperation edit = new EditItem();
+                    edit.update(event.infoID, "Event", event, new DefaultCallback() {
+                        @Override
+                        public void onSuccess() {
+                            addScheduledEventToPath(event);
+                        }
+
+                        @Override
+                        public void onFailure(Exception e) {
+                            showToast("Error!" + e.getMessage());
+                        }
+                    });
                 }
             }
         });
@@ -136,7 +154,7 @@ public class DetailedUpcomingEventActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (!dataSnapshot.hasChild(event.infoID)) {
-                    ref.child(event.infoID).setValue(event);
+                    ref.child(event.infoID).setValue(event.infoID);
                     showToast("Success RSVP");
                 } else {
                     showToast("Already RSVP!");

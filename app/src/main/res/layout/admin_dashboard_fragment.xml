@@ -52,11 +52,11 @@
         app:layout_constraintTop_toBottomOf="@+id/view_complaint" />
 
     <TextView
-        android:id="@+id/scheduled_event"
+        android:id="@+id/events_history"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
-        android:text="Scheduled Events"
+        android:text="Events History"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,11 +67,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
-        android:text="Past Events"
+        android:text=""
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scheduled_event" />
+        app:layout_constraintTop_toBottomOf="@+id/events_history" />
 
     <TextView
         android:id="@+id/logout"

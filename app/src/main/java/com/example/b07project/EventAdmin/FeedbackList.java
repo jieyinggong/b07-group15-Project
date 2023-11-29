@@ -11,15 +11,11 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.b07project.R;
-import com.example.b07project.ScheduledEvents_studentview.DetailedUpcomingEventActivity;
-import com.example.b07project.ScheduledEvents_studentview.EventAdapter;
-import com.example.b07project.ScheduledEvents_studentview.StudentUpcomingEvent;
 import com.example.b07project.dbOperation_Information.ResultCallback;
 import com.example.b07project.dbOperation_Special.ChangesSpecialFetch;
 import com.example.b07project.dbOperation_Special.FetchSpecialChangesOperation;
 import com.example.b07project.dbOperation_Special.ReadSpecialItem;
 import com.example.b07project.dbOperation_Special.ReadSpecialOperation;
-import com.example.b07project.main.Event;
 import com.example.b07project.main.Feedback;
 import com.example.b07project.main.Information;
 
@@ -50,10 +46,11 @@ public class FeedbackList extends AppCompatActivity {
         read.listAllSpecial(path, Feedback.class, new ResultCallback<List<Information>>() {
             @Override
             public void onSuccess(List<Information> result) {
+                feedbacks_list.clear();
                 for (Information info : result) {
                     if(info instanceof Feedback) {
                         Feedback feedback = (Feedback) info;
-                        feedbacks_list.add(feedback);
+                        feedbacks_list.add(0, feedback);
                     }
                 }
                 feedbackAdapter.notifyDataSetChanged();
