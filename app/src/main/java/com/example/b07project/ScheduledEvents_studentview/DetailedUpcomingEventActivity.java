@@ -1,27 +1,40 @@
 package com.example.b07project.ScheduledEvents_studentview;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.b07project.R;
+import com.example.b07project.dbOperation_Information.CreateItem;
+import com.example.b07project.dbOperation_Information.CreateOperation;
+import com.example.b07project.dbOperation_Information.DefaultCallback;
 import com.example.b07project.dbOperation_Information.ResultCallback;
 import com.example.b07project.dbOperation_Special.ReadSpecialItem;
 import com.example.b07project.dbOperation_Special.ReadSpecialOperation;
 import com.example.b07project.main.Event;
 import com.example.b07project.main.Information;
+import com.example.b07project.main.ParseToCalendar;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
 
 public class DetailedUpcomingEventActivity extends AppCompatActivity {
+    boolean isRSVP = false;
+    String scheduledEventsPath = "StudentEventOrganize/";
+
+    Event event;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +61,7 @@ public class DetailedUpcomingEventActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Information result) {
                 if(result instanceof Event) {
-                    Event event = (Event) result;
+                    event = (Event) result;
                     String subject = event.subject;
                     String content = event.content;
                     String start = event.startDateTime;
@@ -82,31 +95,60 @@ public class DetailedUpcomingEventActivity extends AppCompatActivity {
         findViewById(R.id.RSVP).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    String endTimeString = endTextView.getText().toString();
-                    Calendar endTime = parseStringToCalendar(endTimeString);
-
-                    if (Calendar.getInstance().after(endTime)) {
-                        Intent intent = new Intent(DetailedUpcomingEventActivity.this, Feedback_StudentActivity.class);
-                        intent.putExtra("EVENTID", eventid);
-                        startActivity(intent);
-                    }else{
-                        showToast("Can't give feedback for event that hasn't ended!");
-                    }
-                } catch (ParseException e) {
-                    e.printStackTrace();
+                if (checkEventTime(Calendar.getInstance(),event)){
+                    addScheduledEventToPath(event);
                 }
             }
         });
 
     }
 
-    private Calendar parseStringToCalendar(String timeString) throws ParseException {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(dateFormat.parse(timeString));
-        return calendar;
+    private boolean checkEventTime(Calendar calendar, Event event){
+        try {
+            String endTimeString = event.endDateTime;
+            Calendar endTime = ParseToCalendar.parseStringToCalendar(endTimeString);
+            String startTimeString = event.startDateTime;
+            Calendar startTime = ParseToCalendar.parseStringToCalendar(startTimeString);
+            if (calendar.after(startTime) && calendar.before(endTime)) {
+                showToast("The event is in progress. Cannot RSVP!");
+                return false;
+            } else if (calendar.after(endTime)) {
+                showToast("Event has ended!");
+                return false;
+            } else {
+                return true;
+            }
+        }catch (ParseException e) {
+                e.printStackTrace();
+                showToast("Error!");
+                return false;
+            }
     }
+
+    private void addScheduledEventToPath(Event event) {
+        SharedPreferences studentPreferences = getSharedPreferences("StudentPref", MODE_PRIVATE);
+        String username = studentPreferences.getString("username", "not found");
+        String path = scheduledEventsPath + username;
+
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
+        DatabaseReference ref = db.getReference().child(path);
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (!dataSnapshot.hasChild(event.infoID)) {
+                    ref.child(event.infoID).setValue(event);
+                    showToast("Success RSVP");
+                } else {
+                    showToast("Already RSVP!");
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                showToast("Error!" + databaseError.getMessage());
+            }
+        });
+    }
+
 
     private void showToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();

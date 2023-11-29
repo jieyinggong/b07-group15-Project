@@ -52,8 +52,7 @@ public class Feedback_StudentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //back to dashboard
-                Intent intent = new Intent(Feedback_StudentActivity.this, DetailedScheduledEventActivity.class);
-                startActivity(intent);
+               finish();
             }
         });
     }

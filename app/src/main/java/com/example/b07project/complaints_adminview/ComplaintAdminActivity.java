@@ -1,4 +1,4 @@
-package com.example.b07project.complaintsadminview;
+package com.example.b07project.complaints_adminview;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -83,6 +83,7 @@ public class ComplaintAdminActivity extends AppCompatActivity {
 //        Complaint info2 = new Complaint("subject2","content111");
 //        dataList.add(0, info2);
 //        adapter.notifyDataSetChanged();
+        adapter.clear();
         fetcher.fetchNewitem(path, new ResultCallback<Information>() {
             @Override
             public void onSuccess(Information newItem) {
