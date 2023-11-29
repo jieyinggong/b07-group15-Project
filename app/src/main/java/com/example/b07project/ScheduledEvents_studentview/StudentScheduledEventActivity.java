@@ -131,7 +131,7 @@ public class StudentScheduledEventActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     Event event = dataSnapshot.getValue(Event.class);
-                    dataList.add(event);
+                    dataList.add(0, event);
                     Log.i("tag", "add path success" + event.subject);
                     adapter.notifyDataSetChanged();
                 }

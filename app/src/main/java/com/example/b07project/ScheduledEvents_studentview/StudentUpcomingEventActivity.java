@@ -75,9 +75,6 @@ public class StudentUpcomingEventActivity extends AppCompatActivity {
     }
     protected void onResume() {
         super.onResume();
-//        Complaint info2 = new Complaint("subject2","content111");
-//        dataList.add(0, info2);
-//        adapter.notifyDataSetChanged();
         adapter.clear();
         fetcher.fetchNewSpecialitem(path, Event.class, new ResultCallback<Information>() {
             @Override
