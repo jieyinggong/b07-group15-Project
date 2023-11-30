@@ -37,6 +37,9 @@ public class EventHistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_history_admin);
 
+        //click back
+        findViewById(R.id.back_bar).setOnClickListener(v -> finish());
+
         listView = findViewById(R.id.my_list_view);
         dataList = new ArrayList<>();
         ReadSpecialOperation read = new ReadSpecialItem();

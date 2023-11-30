@@ -39,6 +39,7 @@ public class DetailedScheduledEventActivity extends AppCompatActivity {
         TextView endTextView = findViewById(R.id.end_time_text_view);
         TextView locationTextView = findViewById(R.id.location_text_view);
         TextView descriptionTextView = findViewById(R.id.description_text_view);
+        TextView spaceTextView = findViewById(R.id.space_text_view);
 
         ReadSpecialOperation readSpecialItem = new ReadSpecialItem();
         String path = "Event";
@@ -53,12 +54,14 @@ public class DetailedScheduledEventActivity extends AppCompatActivity {
                     String start = event.startDateTime;
                     String end = event.endDateTime;
                     String location = event.location;
+                    String space = String.valueOf(event.CurrentAvailableSpace);
 
                     subjectTextView.setText(subject);
                     startTextView.setText(start);
                     endTextView.setText(end);
                     locationTextView.setText(location);
                     descriptionTextView.setText(content);
+                    spaceTextView.setText(space);
                 }
 
             }

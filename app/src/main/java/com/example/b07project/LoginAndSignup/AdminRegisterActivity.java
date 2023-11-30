@@ -42,6 +42,8 @@ public class AdminRegisterActivity extends AppCompatActivity {
                 registerUser();
             }
         });
+
+        findViewById(R.id.back_bar).setOnClickListener(v -> finish());
     }
 
     private void registerUser() {
