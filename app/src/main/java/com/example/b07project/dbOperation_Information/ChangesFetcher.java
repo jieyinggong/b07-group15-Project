@@ -2,16 +2,14 @@ package com.example.b07project.dbOperation_Information;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import com.example.b07project.main.Information;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ChildEventListener;
-import  com.google.firebase.database.ValueEventListener;
-
-
-import androidx.annotation.NonNull;
 public class ChangesFetcher implements FetchfromChangesOperation {
     private ChildEventListener childEventListenerForNewItem;
     private ChildEventListener childEventListenerForUpdates;

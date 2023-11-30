@@ -3,7 +3,6 @@ package com.example.b07project.dbOperation_Special;
 import androidx.annotation.NonNull;
 
 import com.example.b07project.main.Information;
-import com.example.b07project.dbOperation_Information.DefaultCallback;
 import com.example.b07project.dbOperation_Information.ResultCallback;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,9 +16,6 @@ import java.util.List;
 public class ReadSpecialItem implements ReadSpecialOperation {
     DatabaseReference ref;
     public ReadSpecialItem(){
-        ref = FirebaseDatabase.getInstance().getReference();
-    }
-    public ReadSpecialItem(DefaultCallback callback){
         ref = FirebaseDatabase.getInstance().getReference();
     }
 
@@ -36,7 +32,6 @@ public class ReadSpecialItem implements ReadSpecialOperation {
                             callback.onSuccess(result);
                         }}
                 } else {
-                    // 数据不存在
                     if (callback != null) {
                         callback.onFailure(new Exception("Data not found for ID: " + id));
                     }
@@ -44,7 +39,6 @@ public class ReadSpecialItem implements ReadSpecialOperation {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // 读取数据失败
                 if (callback != null) {
                     callback.onFailure(databaseError.toException());
                 }

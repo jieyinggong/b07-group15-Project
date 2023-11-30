@@ -16,9 +16,7 @@ public class ReadItem implements ReadOperation{
     public  ReadItem(){
         ref = FirebaseDatabase.getInstance().getReference();
     }
-    public  ReadItem(DefaultCallback callback){
-        ref = FirebaseDatabase.getInstance().getReference();
-    }
+
 
     @Override
     public void read(String id,String path, ResultCallback<Information> callback){
@@ -59,7 +57,7 @@ public class ReadItem implements ReadOperation{
                 if (dataSnapshot.exists()) {
                     List<Information> resultList = new ArrayList<>();
                     for (DataSnapshot itemSnapshot : dataSnapshot.getChildren()) {
-                        Information item = (Information) itemSnapshot.getValue(Information.class);
+                        Information item = itemSnapshot.getValue(Information.class);
                         resultList.add(item);
                     }
                     if (callback != null) {

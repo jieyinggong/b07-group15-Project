@@ -14,122 +14,137 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.B07project"
         tools:targetApi="31">
+        <!-- login and sign up -->
         <activity
-            android:name=".EventAdmin.DetailedFeedbackActivity"
+            android:name=".Admin_Starter.Admin_dashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".EventAdmin.FeedbackList"
+            android:name=".Admin_Starter.AdminRegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".EventAdmin.FeedbackAdmin"
+            android:name=".Admin_Starter.AdminLoginActivity"
             android:exported="false" />
         <activity
-            android:name=".EventAdmin.DetailedEventHistory"
+            android:name=".Student_Starter.Student_dashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".EventAdmin.EventHistoryActivity"
-            android:exported="false" /> <!-- login and sign up -->
-        <activity
-            android:name=".LoginAndSignup.Admin_dashboardActivity"
+            android:name=".Student_Starter.StudentRegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginAndSignup.AdminRegisterActivity"
+            android:name=".Student_Starter.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginAndSignup.AdminLoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginAndSignup.Student_dashboardActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginAndSignup.StudentRegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginAndSignup.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginAndSignup.StudentLoginActivity"
+            android:name=".Student_Starter.StudentLoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- post checker -->
+        </activity>
+        <!-- post checker -->
         <activity
-            android:name=".postcheckerfixed.statMajor"
+            android:name=".Student_POSt_checker.statMajor"
             android:exported="false" />
         <activity
-            android:name=".postcheckerfixed.statSpecial"
+            android:name=".Student_POSt_checker.statSpecial"
             android:exported="false" />
         <activity
-            android:name=".postcheckerfixed.statML2"
+            android:name=".Student_POSt_checker.statML2"
             android:exported="false" />
         <activity
-            android:name=".postcheckerfixed.statML"
+            android:name=".Student_POSt_checker.statML"
             android:exported="false" />
         <activity
-            android:name=".postcheckerfixed.stat"
+            android:name=".Student_POSt_checker.stat"
             android:exported="false" />
         <activity
-            android:name=".postcheckerfixed.mathSpecial2"
+            android:name=".Student_POSt_checker.mathSpecial2"
             android:exported="false" />
         <activity
-            android:name=".postcheckerfixed.mathMajor2"
+            android:name=".Student_POSt_checker.mathMajor2"
             android:exported="false" />
         <activity
-            android:name=".postcheckerfixed.mathSpecial"
+            android:name=".Student_POSt_checker.mathSpecial"
             android:exported="false" />
         <activity
-            android:name=".postcheckerfixed.mathMajor"
+            android:name=".Student_POSt_checker.mathMajor"
             android:exported="false" />
         <activity
-            android:name=".postcheckerfixed.math"
+            android:name=".Student_POSt_checker.math"
             android:exported="false" />
         <activity
-            android:name=".postcheckerfixed.csMinor"
+            android:name=".Student_POSt_checker.csMinor"
             android:exported="false" />
         <activity
-            android:name=".postcheckerfixed.csMajor2"
+            android:name=".Student_POSt_checker.csMajor2"
             android:exported="false" />
         <activity
-            android:name=".postcheckerfixed.csMajor"
+            android:name=".Student_POSt_checker.csMajor"
             android:exported="false" />
         <activity
-            android:name=".postcheckerfixed.csActivity"
+            android:name=".Student_POSt_checker.csActivity"
             android:exported="false" />
         <activity
-            android:name=".postcheckerfixed.CMSpostMain"
-            android:exported="false" /> <!-- complaint -->
+            android:name=".Student_POSt_checker.CMSpostMain"
+            android:exported="false" />
+        <!-- complaint -->
         <activity
-            android:name=".complaints_studentview.StudentComplaint"
+            android:name=".Student_Complaints.StudentComplaint"
             android:exported="false" />
         <activity
-            android:name=".complaints_adminview.DetailedItemActivity"
+            android:name=".Admin_Complaints.DetailedItemActivity"
             android:exported="false" />
-        <!-- admin event -->
         <activity
-            android:name=".complaints_adminview.ComplaintAdminActivity"
-            android:exported="false"/>
-        <activity android:name=".EventAdmin.DetailedUpcomingEventActivity"
-            android:exported="false"/>
-        <activity android:name=".EventAdmin.EditEventActivity"
+            android:name=".Admin_Complaints.ComplaintAdminActivity"
             android:exported="false"/>
         <!-- admin event -->
+        <activity android:name=".Admin_Event_Management.DetailedUpcomingEventActivity"
+            android:exported="false"/>
+        <activity android:name=".Admin_Event_Management.EditEventActivity"
+            android:exported="false"/>
         <activity
-            android:name=".EventAdmin.EventAdminActivity"
-            android:exported="false" /> <!-- student event -->
+            android:name=".Admin_New_Event.EventAdminActivity"
+            android:exported="false" />
         <activity
-            android:name=".ScheduledEvents_studentview.StudentUpcomingEventActivity"
+            android:name=".Admin_Event_Management.DetailedFeedbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Admin_Event_Management.FeedbackList"
+            android:exported="false" />
+        <activity
+            android:name=".Admin_Event_Management.FeedbackAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".Admin_Event_Management.DetailedEventHistory"
+            android:exported="false" />
+        <activity
+            android:name=".Admin_Event_Management.EventHistoryActivity"
+            android:exported="false" />
+        <!-- student event -->
+        <activity
+            android:name=".Student_Event.StudentUpcomingEventActivity"
             android:exported="false"/>
-        <activity android:name=".ScheduledEvents_studentview.DetailedUpcomingEventActivity"
+        <activity android:name=".Student_Event.DetailedUpcomingEventActivity"
             android:exported="false"/>
-        <activity android:name=".ScheduledEvents_studentview.StudentScheduledEventActivity"
+        <activity android:name=".Student_Event.StudentScheduledEventActivity"
             android:exported="false"/>
-        <activity android:name=".ScheduledEvents_studentview.DetailedScheduledEventActivity"
+        <activity android:name=".Student_Event.DetailedScheduledEventActivity"
             android:exported="false"/>
         <!-- student feedback -->
-        <activity android:name=".ScheduledEvents_studentview.Feedback_StudentActivity"
+        <activity android:name=".Student_Event.Feedback_StudentActivity"
+            android:exported="false"/>
+        <!-- admin announcement -->
+        <activity android:name=".Admin_Announcement.Admin_AnnouncementPostingActivity"
+            android:exported="false"/>
+        <activity android:name=".Admin_Announcement.AdminPostAnnouncement"
+            android:exported="false"/>
+        <activity android:name=".Admin_Announcement.MainActivity"
+            android:exported="false"/>
+        <!-- student announcement view -->
+        <activity android:name=".Student_Announcement.AnnouncementActivity"
+            android:exported="false"/>
+        <activity android:name=".Student_Announcement.DetailedAnnouncementItemActivity"
             android:exported="false"/>
     </application>
 

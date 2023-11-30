@@ -11,10 +11,19 @@
         android:layout_height="wrap_content"
         android:background="@color/my_primary_color"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/SchollView1"
         app:navigationIcon="@drawable/baseline_arrow_circle_left_24"
-        app:title="Back"
-        app:titleTextColor="@color/white"/>
+        app:title=""
+        app:contentInsetStartWithNavigation="0dp"
+        app:contentInsetLeft="0dp"
+        app:titleTextColor="@color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post Event"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:textSize="20sp" />
+    </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
         android:id="@+id/SchollView1"

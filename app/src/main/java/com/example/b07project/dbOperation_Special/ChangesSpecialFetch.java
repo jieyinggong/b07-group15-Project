@@ -1,6 +1,5 @@
 package com.example.b07project.dbOperation_Special;
 
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -11,7 +10,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
 
 public class ChangesSpecialFetch implements FetchSpecialChangesOperation {
     private ChildEventListener childEventListenerForNewItem;
@@ -26,7 +25,6 @@ public class ChangesSpecialFetch implements FetchSpecialChangesOperation {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String previousChildName) {
                 if (Information.class.isAssignableFrom(claz)) {
-                    // 处理新添加的节点
                     Information newItem = (Information) dataSnapshot.getValue(claz);
                     callback.onSuccess(newItem);
                 }
@@ -72,7 +70,6 @@ public class ChangesSpecialFetch implements FetchSpecialChangesOperation {
                         }
                     }
                 } else {
-                    // 数据不存在时的处理
                     callback.onFailure(new Exception("No data available"));
                 }
             }

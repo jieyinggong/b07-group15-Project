@@ -9,11 +9,7 @@ public abstract class CheckValidity {
     public static boolean checkShortValidity(String title){
         if (title == null){
             return false;
-        } else if (title.length() > 200 || title.length() == 0){
-            return false;
-        } else {
-            return true;
-        }
+        } else return title.length() <= 200 && title.length() != 0;
     }
 
     /**
@@ -23,10 +19,6 @@ public abstract class CheckValidity {
     public static boolean checkLongValidity(String content){
         if (content == null){
             return false;
-        } else if (content.length() > 10000  || content.length() == 0){
-            return false;
-        } else {
-            return true;
-        }
+        } else return content.length() <= 10000 && content.length() != 0;
     }
 }

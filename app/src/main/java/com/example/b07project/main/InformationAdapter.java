@@ -7,7 +7,8 @@ import android.view.LayoutInflater;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.b07project.main.Information;
+import androidx.annotation.NonNull;
+
 import com.example.b07project.R;
 import java.util.List;
 
@@ -17,8 +18,9 @@ public class InformationAdapter extends ArrayAdapter<Information> {
         super(context, resource, items);
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         View view = convertView;
 
         if (view == null) {

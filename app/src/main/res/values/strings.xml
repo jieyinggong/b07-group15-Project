@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CMS HELPER</string>
+    <string name="app_name">CMS Helper</string>
     <string name="title_activity_main">ComplaintAdmin</string>
     <string name="login">Login</string>
     <string name="user_name">Username</string>

@@ -1,13 +1,7 @@
 package com.example.b07project.main;
 
-import androidx.compose.ui.graphics.vector.VectorProperty;
-
-import com.google.firebase.database.Exclude;
-
 import java.text.ParseException;
-import java.time.LocalDateTime;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class Event extends Information{
@@ -19,7 +13,7 @@ public class Event extends Information{
 
     public Event(){
         super();
-    };
+    }
 
     public static void AddCheckedEvent(Information info, List<Event> dataList){
         if (info instanceof Event && info.infoID != null) {
