@@ -9,13 +9,14 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/back_bar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:title="Scheduled Event">
-    </androidx.appcompat.widget.Toolbar>
+        android:layout_height="wrap_content"
+        android:background="@color/my_primary_color"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/baseline_arrow_circle_left_24"
+        app:title="Back    Scheduled Events"
+        app:titleTextColor="@color/white" />
 
     <ListView
         android:id="@+id/my_list_view"

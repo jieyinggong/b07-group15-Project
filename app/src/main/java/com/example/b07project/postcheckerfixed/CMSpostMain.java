@@ -36,5 +36,12 @@ public class CMSpostMain extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+            findViewById(R.id.returnButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CMSpostMain.this, Student_dashboardActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

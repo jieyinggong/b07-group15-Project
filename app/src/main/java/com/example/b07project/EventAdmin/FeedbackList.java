@@ -78,5 +78,7 @@ public class FeedbackList extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.back_bar).setOnClickListener(v -> finish());
+
     }
 }
