@@ -17,13 +17,4 @@ public class ParseToCalendar {
             calendar.setTime(parse);}
         return calendar;
     }
-
-    public static boolean areCalendarsEqual(Calendar cal1, Calendar cal2) {
-        return cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
-                cal1.get(Calendar.MONTH) == cal2.get(Calendar.MONTH) &&
-                cal1.get(Calendar.DAY_OF_MONTH) == cal2.get(Calendar.DAY_OF_MONTH) &&
-                cal1.get(Calendar.HOUR_OF_DAY) == cal2.get(Calendar.HOUR_OF_DAY) &&
-                cal1.get(Calendar.MINUTE) == cal2.get(Calendar.MINUTE);
-    }
-
 }

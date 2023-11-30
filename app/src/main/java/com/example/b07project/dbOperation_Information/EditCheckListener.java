@@ -1,15 +1,14 @@
 package com.example.b07project.dbOperation_Information;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import  com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 public  class EditCheckListener implements ValueEventListener {
-    final private DatabaseReference ref;
     final private Runnable onSuccess;
     final private DefaultCallback callback;
 
     public EditCheckListener(DatabaseReference ref, Runnable onSuccess, DefaultCallback callback) {
-        this.ref = ref;
         this.onSuccess = onSuccess;
         this.callback = callback;
     }
