@@ -1,4 +1,4 @@
-package com.example.b07project.Student_Starter;
+package com.example.b07project.Dashboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,7 @@ import com.example.b07project.Student_Event.StudentUpcomingEventActivity;
 import com.example.b07project.Student_Announcement.AnnouncementActivity;
 import com.example.b07project.Student_Complaints.StudentComplaint;
 import com.example.b07project.Student_POSt_checker.CMSpostMain;
+import com.example.b07project.Student_Starter.StudentLoginActivity;
 
 public class Student_dashboardActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.b07project.Admin_Starter;
+package com.example.b07project.Dashboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.b07project.Admin_Event_Management.EventHistoryActivity;
+import com.example.b07project.Admin_Starter.AdminLoginActivity;
 import com.example.b07project.R;
 import com.example.b07project.Admin_Announcement.AdminPostAnnouncement;
 import com.example.b07project.Student_Announcement.AnnouncementActivity;

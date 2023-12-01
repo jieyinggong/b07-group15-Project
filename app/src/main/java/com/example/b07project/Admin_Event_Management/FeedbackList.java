@@ -71,7 +71,8 @@ public class FeedbackList extends AppCompatActivity {
                 Feedback feedback = feedbacks_list.get(position);
                 Intent intent = new Intent(FeedbackList.this, DetailedFeedbackActivity.class);
                 intent.putExtra("COMMENT", feedback.content);
-                intent.putExtra("RATE",feedback.numericRating);
+                String numString = Integer.toString(feedback.numericRating);
+                intent.putExtra("RATE",numString);
                 startActivity(intent);
             }
         });

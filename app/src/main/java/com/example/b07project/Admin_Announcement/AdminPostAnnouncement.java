@@ -10,7 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.b07project.Admin_Starter.Admin_dashboardActivity;
+import com.example.b07project.Dashboard.Admin_dashboardActivity;
 import com.example.b07project.R;
 import com.example.b07project.dbOperation_Information.CreateItem;
 import com.example.b07project.dbOperation_Information.CreateOperation;

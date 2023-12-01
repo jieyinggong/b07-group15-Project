@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.b07project.Dashboard.Student_dashboardActivity;
 import com.example.b07project.R;
+import com.example.b07project.main.Student;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

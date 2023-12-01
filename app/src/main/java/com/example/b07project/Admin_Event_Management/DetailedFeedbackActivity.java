@@ -18,12 +18,12 @@ public class DetailedFeedbackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_event_detailed_feedback_comment_display);
 
-        String rate = String.valueOf(getIntent().getStringExtra("RATE"));
+        String rate =getIntent().getStringExtra("RATE");
         String comment = getIntent().getStringExtra("COMMENT");
 
         TextView ratingTextView = findViewById(R.id.rating_text_view);
         if (ratingTextView != null) {
-            ratingTextView.setText("rate");
+            ratingTextView.setText(rate);
         } else {
             Log.e("DetailActivity", "TextView not found");
         }
