@@ -1,10 +1,10 @@
 package com.example.b07project.Admin_Register_MVP;
 
 public class AdminRegisterPresenter {
-    private AdminRegisterView view;
+    private AdminRegisterModel.AdminRegisterInterface view;
     private AdminRegisterModel model;
 
-    public AdminRegisterPresenter(AdminRegisterView view) {
+    public AdminRegisterPresenter(AdminRegisterModel.AdminRegisterInterface view) {
         this.view = view;
         this.model = new AdminRegisterModel();
     }

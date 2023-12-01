@@ -7,6 +7,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.security.MessageDigest;
 
 public class StudentRegisterModel {
+    public interface StudentRegisterViewInterface {
+        void showUsernameTaken();
+        void showRegistrationSuccess();
+        void showRegistrationFailure();
+    }
     private DatabaseReference mDatabase;
 
     public StudentRegisterModel() {

@@ -11,8 +11,9 @@ import com.example.b07project.Student_Event.StudentScheduledEventActivity;
 import com.example.b07project.Student_Event.StudentUpcomingEventActivity;
 import com.example.b07project.Student_Announcement.AnnouncementActivity;
 import com.example.b07project.Student_Complaints.StudentComplaint;
+import com.example.b07project.Student_Login_MVP.StudentLoginView;
 import com.example.b07project.Student_POSt_checker.CMSpostMain;
-import com.example.b07project.Student_Starter.StudentLoginActivity;
+
 
 public class Student_dashboardActivity extends AppCompatActivity {
 
@@ -78,7 +79,7 @@ public class Student_dashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //go to login fragment
-                Intent intent = new Intent(Student_dashboardActivity.this, StudentLoginActivity.class);
+                Intent intent = new Intent(Student_dashboardActivity.this, StudentLoginView.class);
                 startActivity(intent);
             }
     });

@@ -1,4 +1,4 @@
-package com.example.b07project.Admin_Starter;
+package com.example.b07project.origin_login_and_signup.Student_Starter;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.b07project.Dashboard.Admin_dashboardActivity;
-import com.example.b07project.Student_Starter.StudentLoginActivity;
 import com.example.b07project.main.Admin;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

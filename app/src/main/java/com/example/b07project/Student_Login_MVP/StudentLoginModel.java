@@ -9,6 +9,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.security.MessageDigest;
 
 public class StudentLoginModel {
+    public interface StudentLoginViewInterface {
+        void onLoginSuccess(String username);
+        void onLoginFailure();
+    }
     private DatabaseReference mDatabase;
 
     public StudentLoginModel() {

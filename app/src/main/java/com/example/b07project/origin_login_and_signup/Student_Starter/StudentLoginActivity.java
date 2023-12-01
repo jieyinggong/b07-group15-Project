@@ -1,4 +1,4 @@
-package com.example.b07project.Student_Starter;
+package com.example.b07project.origin_login_and_signup.Student_Starter;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.b07project.Admin_Starter.AdminLoginActivity;
 import com.example.b07project.Dashboard.Student_dashboardActivity;
 import com.example.b07project.R;
 import com.example.b07project.main.Student;

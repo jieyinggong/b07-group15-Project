@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.b07project.Admin_Event_Management.EventHistoryActivity;
-import com.example.b07project.Admin_Starter.AdminLoginActivity;
+import com.example.b07project.Admin_Login_MVP.AdminLoginView;
 import com.example.b07project.R;
 import com.example.b07project.Admin_Announcement.AdminPostAnnouncement;
 import com.example.b07project.Student_Announcement.AnnouncementActivity;
@@ -73,7 +73,7 @@ public class Admin_dashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //go to login fragment
-                Intent intent = new Intent(Admin_dashboardActivity.this, AdminLoginActivity.class);
+                Intent intent = new Intent(Admin_dashboardActivity.this, AdminLoginView.class);
                 startActivity(intent);
             }
         });

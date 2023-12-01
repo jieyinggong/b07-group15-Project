@@ -9,6 +9,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class AdminRegisterModel {
+    public interface AdminRegisterInterface {
+        void showUsernameTaken();
+        void showRegistrationSuccess();
+        void showRegistrationFailure();
+    }
     private DatabaseReference mDatabase;
 
     public AdminRegisterModel() {

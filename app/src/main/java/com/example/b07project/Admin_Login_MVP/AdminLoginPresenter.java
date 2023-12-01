@@ -1,10 +1,11 @@
 package com.example.b07project.Admin_Login_MVP;
 
 public class AdminLoginPresenter {
-    private AdminLoginView view;
+
+    private AdminLoginModel.AdminLoginViewInterface view;
     private AdminLoginModel model;
 
-    public AdminLoginPresenter(AdminLoginView view) {
+    public AdminLoginPresenter(AdminLoginModel.AdminLoginViewInterface view) {
         this.view = view;
         this.model = new AdminLoginModel();
     }
