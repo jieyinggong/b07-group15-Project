@@ -5,8 +5,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.b07project.R;
@@ -17,7 +15,7 @@ public class DetailedItemActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.announcement_detailed_item);
+        setContentView(R.layout.admin_detailed_complaint_item);
 
         String subject = getIntent().getStringExtra("SUBJECT");
         String content = getIntent().getStringExtra("CONTENT");
