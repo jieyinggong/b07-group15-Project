@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.B07project"
+        tools:targetApi="31">
+        <activity
+            android:name=".EventAdmin.DetailedFeedbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EventAdmin.FeedbackList"
+            android:exported="false" />
+        <activity
+            android:name=".EventAdmin.FeedbackAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".EventAdmin.DetailedEventHistory"
+            android:exported="false" />
+        <activity
+            android:name=".EventAdmin.EventHistoryActivity"
+            android:exported="false" /> <!-- login and sign up -->
+        <activity
+            android:name=".LoginAndSignup.Admin_dashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginAndSignup.AdminRegisterView"
+            android:exported="false" />
+        <activity
+            android:name=".LoginAndSignup.AdminLoginView"
+            android:exported="false" />
+        <activity
+            android:name=".LoginAndSignup.Student_dashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginAndSignup.StudentRegisterView"
+            android:exported="false" />
+        <activity
+            android:name=".LoginAndSignup.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginAndSignup.StudentLoginView"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- post checker -->
+        <activity
+            android:name=".postcheckerfixed.statMajor"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.statSpecial"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.statML2"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.statML"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.stat"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.mathSpecial2"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.mathMajor2"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.mathSpecial"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.mathMajor"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.math"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.csMinor"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.csMajor2"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.csMajor"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.csActivity"
+            android:exported="false" />
+        <activity
+            android:name=".postcheckerfixed.CMSpostMain"
+            android:exported="false" /> <!-- complaint -->
+        <activity
+            android:name=".complaints_studentview.StudentComplaint"
+            android:exported="false" />
+        <activity
+            android:name=".complaints_adminview.DetailedItemActivity"
+            android:exported="false" />
+        <!-- admin event -->
+        <activity
+            android:name=".complaints_adminview.ComplaintAdminActivity"
+            android:exported="false"/>
+        <activity android:name=".EventAdmin.DetailedUpcomingEventActivity"
+            android:exported="false"/>
+        <activity android:name=".EventAdmin.EditEventActivity"
+            android:exported="false"/>
+        <!-- admin event -->
+        <activity
+            android:name=".EventAdmin.EventAdminActivity"
+            android:exported="false" /> <!-- student event -->
+        <activity
+            android:name=".ScheduledEvents_studentview.StudentUpcomingEventActivity"
+            android:exported="false"/>
+        <activity android:name=".ScheduledEvents_studentview.DetailedUpcomingEventActivity"
+            android:exported="false"/>
+        <activity android:name=".ScheduledEvents_studentview.StudentScheduledEventActivity"
+            android:exported="false"/>
+        <activity android:name=".ScheduledEvents_studentview.DetailedScheduledEventActivity"
+            android:exported="false"/>
+        <!-- student feedback -->
+        <activity android:name=".ScheduledEvents_studentview.Feedback_StudentActivity"
+            android:exported="false"/>
+    </application>
+
+</manifest>
