@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.b07project.Dashboard.Admin_dashboardActivity;
 import com.example.b07project.R;
 import com.example.b07project.dbOperation_Information.DefaultCallback;
 import com.example.b07project.dbOperation_Information.EditItem;
@@ -205,6 +206,8 @@ public class EditEventActivity extends AppCompatActivity {
             @Override
             public void onSuccess() {
                 showToast("Update Success!");
+                Intent intent = new Intent(EditEventActivity.this, Admin_dashboardActivity.class);
+                startActivity(intent);
                 finish();
             }
 
