@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.b07project.R;
-import com.example.b07project.Student_Starter.Student_dashboardActivity;
+import com.example.b07project.Dashboard.Student_dashboardActivity;
 import com.example.b07project.main.SetToolbar;
 
 public class CMSpostMain extends AppCompatActivity {

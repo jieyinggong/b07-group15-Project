@@ -14,27 +14,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.B07project"
         tools:targetApi="31">
-        <!-- login and sign up -->
+        <!-- dashboard -->
         <activity
-            android:name=".Admin_Starter.Admin_dashboardActivity"
+            android:name=".Dashboard.Admin_dashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".Admin_Starter.AdminRegisterActivity"
+            android:name=".Dashboard.Student_dashboardActivity"
+            android:exported="false" />
+        <!-- origin login and signup
+        <activity
+            android:name=".origin_login_and_signup.Student_Starter.AdminRegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".Admin_Starter.AdminLoginActivity"
+            android:name=".origin_login_and_signup.Student_Starter.AdminLoginActivity"
             android:exported="false" />
+
         <activity
-            android:name=".Student_Starter.Student_dashboardActivity"
+            android:name=".origin_login_and_signup.Student_Starter.StudentRegisterActivity"
             android:exported="false" />
+            -->
+        <!--  login ans signup MVP-->
         <activity
-            android:name=".Student_Starter.StudentRegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Student_Starter.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Student_Starter.StudentLoginActivity"
+            android:name=".Student_Login_MVP.StudentLoginView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,6 +43,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Student_Register_MVP.StudentRegisterView"
+            android:exported="false"/>
+        <activity android:name=".Admin_Login_MVP.AdminLoginView"
+            android:exported="false"/>
+        <activity android:name=".Admin_Register_MVP.AdminRegisterView"
+            android:exported="false"/>
         <!-- post checker -->
         <activity
             android:name=".Student_POSt_checker.statMajor"

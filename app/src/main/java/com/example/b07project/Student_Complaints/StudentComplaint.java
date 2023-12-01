@@ -12,7 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.b07project.main.Complaint;
 import com.example.b07project.main.Information;
-import com.example.b07project.Student_Starter.Student_dashboardActivity;
+import com.example.b07project.Dashboard.Student_dashboardActivity;
 import com.example.b07project.R;
 import com.example.b07project.dbOperation_Information.CreateItem;
 import com.example.b07project.dbOperation_Information.CreateOperation;

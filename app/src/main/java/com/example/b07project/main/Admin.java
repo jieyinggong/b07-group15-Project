@@ -1,4 +1,4 @@
-package com.example.b07project.Admin_Starter;
+package com.example.b07project.main;
 
 public class Admin {
     public String username;

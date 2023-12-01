@@ -1,4 +1,4 @@
-package com.example.b07project.Student_Starter;
+package com.example.b07project.main;
 
 import static android.content.Context.MODE_PRIVATE;
 
