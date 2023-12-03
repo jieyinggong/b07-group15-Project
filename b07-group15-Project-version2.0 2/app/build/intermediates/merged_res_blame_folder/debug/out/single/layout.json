@@ -1,0 +1,182 @@
+[
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_post_checker_math_major.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_post_checker_math_major.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_post_checker_stat_major.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_post_checker_stat_major.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_event_scheduled_event_listview.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_event_scheduled_event_listview.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/admin_detailed_complaint_item.xml",
+        "source": "com.example.b07project.app-main-72:/layout/admin_detailed_complaint_item.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_event_feedback.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_event_feedback.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/admin_detailed_upcoming_event_edit.xml",
+        "source": "com.example.b07project.app-main-72:/layout/admin_detailed_upcoming_event_edit.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_post_checker_cs_major.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_post_checker_cs_major.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/admin_feedback_comment_listview.xml",
+        "source": "com.example.b07project.app-main-72:/layout/admin_feedback_comment_listview.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/admin_post_event.xml",
+        "source": "com.example.b07project.app-main-72:/layout/admin_post_event.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_starter_login.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_starter_login.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_post_checker_stat_ml2.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_post_checker_stat_ml2.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/annoucement_view_listview.xml",
+        "source": "com.example.b07project.app-main-72:/layout/annoucement_view_listview.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/announcement_detailed_item.xml",
+        "source": "com.example.b07project.app-main-72:/layout/announcement_detailed_item.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/admin_event_management_listview.xml",
+        "source": "com.example.b07project.app-main-72:/layout/admin_event_management_listview.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_starter_dashboard.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_starter_dashboard.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/admin_stater_login.xml",
+        "source": "com.example.b07project.app-main-72:/layout/admin_stater_login.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_post_checker_math.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_post_checker_math.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_post_checker_math_major2.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_post_checker_math_major2.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/list_eventitem_image_and_text.xml",
+        "source": "com.example.b07project.app-main-72:/layout/list_eventitem_image_and_text.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/admin_stater_register.xml",
+        "source": "com.example.b07project.app-main-72:/layout/admin_stater_register.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_event_detailed_scheduled_event.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_event_detailed_scheduled_event.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_event_detailed_upcoming_event.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_event_detailed_upcoming_event.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/admin_stater_dashboard.xml",
+        "source": "com.example.b07project.app-main-72:/layout/admin_stater_dashboard.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_post_checker_stat.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_post_checker_stat.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_complaint_post_complaints.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_complaint_post_complaints.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_post_checker_cs_minor.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_post_checker_cs_minor.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_post_checker_stat_ml.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_post_checker_stat_ml.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/admin_feedback_summary.xml",
+        "source": "com.example.b07project.app-main-72:/layout/admin_feedback_summary.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_event_upcoming_event_listview.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_event_upcoming_event_listview.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/admin_event_detailed_event_management_display.xml",
+        "source": "com.example.b07project.app-main-72:/layout/admin_event_detailed_event_management_display.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_post_checker_math_special2.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_post_checker_math_special2.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_post_checker_stat_special.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_post_checker_stat_special.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_post_checker_math_special.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_post_checker_math_special.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_post_checker_cmsstart.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_post_checker_cmsstart.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/admin_event_edit_event.xml",
+        "source": "com.example.b07project.app-main-72:/layout/admin_event_edit_event.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_starter_register.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_starter_register.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/admin_complaints_listview.xml",
+        "source": "com.example.b07project.app-main-72:/layout/admin_complaints_listview.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/list_item_text.xml",
+        "source": "com.example.b07project.app-main-72:/layout/list_item_text.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/admin_event_detailed_feedback_comment_display.xml",
+        "source": "com.example.b07project.app-main-72:/layout/admin_event_detailed_feedback_comment_display.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_post_checker_cs.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_post_checker_cs.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/activity_main.xml",
+        "source": "com.example.b07project.app-main-72:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/content_main.xml",
+        "source": "com.example.b07project.app-main-72:/layout/content_main.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/list_item_text_feedback.xml",
+        "source": "com.example.b07project.app-main-72:/layout/list_item_text_feedback.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/student_post_checker_cs_major2.xml",
+        "source": "com.example.b07project.app-main-72:/layout/student_post_checker_cs_major2.xml"
+    },
+    {
+        "merged": "com.example.b07project.app-mergeDebugResources-69:/layout/admin_post_announcement_fragment.xml",
+        "source": "com.example.b07project.app-main-72:/layout/admin_post_announcement_fragment.xml"
+    }
+]
