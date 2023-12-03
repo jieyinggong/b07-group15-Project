@@ -9,20 +9,23 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+
 import com.example.b07project.R;
 import com.example.b07project.Student_Login_MVP.StudentLoginView;
-
+import com.google.firebase.database.FirebaseDatabase;
 
 public class StudentRegisterView extends AppCompatActivity implements StudentRegisterModel.StudentRegisterViewInterface {
     private EditText usernameField, fullNameField, passwordField;
     private StudentRegisterPresenter presenter;
+    private StudentRegisterModel model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_starter_register);
-
-        presenter = new StudentRegisterPresenter(this);
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        model = new StudentRegisterModel(firebaseDatabase);
+        presenter = new StudentRegisterPresenter(this,model);
 
         usernameField = findViewById(R.id.usernameEditText);
         fullNameField = findViewById(R.id.fullNameEditText);

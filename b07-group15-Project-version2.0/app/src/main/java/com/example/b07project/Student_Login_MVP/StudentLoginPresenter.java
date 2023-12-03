@@ -1,12 +1,12 @@
 package com.example.b07project.Student_Login_MVP;
 
 public class StudentLoginPresenter {
-    private StudentLoginView view;
+    private StudentLoginModel.StudentLoginViewInterface view;
     private StudentLoginModel model;
 
-    public StudentLoginPresenter(StudentLoginView view) {
+    public StudentLoginPresenter(StudentLoginModel.StudentLoginViewInterface view, StudentLoginModel model) {
         this.view = view;
-        this.model = new StudentLoginModel();
+        this.model = model;
     }
 
     public void attemptLogin(String username, String password) {
@@ -17,8 +17,8 @@ public class StudentLoginPresenter {
 
         model.authenticateUser(username, password, new StudentLoginModel.OnUserAuthenticationListener() {
             @Override
-            public void onSuccess(String username) {
-                view.onLoginSuccess(username);
+            public void onSuccess() {
+                view.onLoginSuccess();
             }
 
             @Override

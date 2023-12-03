@@ -3,7 +3,9 @@ package com.example.b07project.Student_Register_MVP;
 import com.example.b07project.main.Student;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.security.MessageDigest;
 
 public class StudentRegisterModel {
@@ -13,9 +15,12 @@ public class StudentRegisterModel {
         void showRegistrationFailure();
     }
     private DatabaseReference mDatabase;
+    private DatabaseReference databaseReference;
 
-    public StudentRegisterModel() {
+    public StudentRegisterModel(FirebaseDatabase firebaseDatabase) {
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        this.databaseReference = firebaseDatabase.getReference();
     }
 
     public void checkUsernameUnique(String username, OnUsernameCheckListener listener) {

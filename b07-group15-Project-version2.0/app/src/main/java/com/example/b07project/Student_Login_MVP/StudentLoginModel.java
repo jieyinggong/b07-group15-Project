@@ -5,18 +5,33 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import androidx.appcompat.app.AppCompatActivity;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import androidx.appcompat.widget.Toolbar;
+import com.example.b07project.R;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
 
 import java.security.MessageDigest;
 
 public class StudentLoginModel {
     public interface StudentLoginViewInterface {
-        void onLoginSuccess(String username);
+        void onLoginSuccess();
         void onLoginFailure();
     }
     private DatabaseReference mDatabase;
-
-    public StudentLoginModel() {
+    private DatabaseReference databaseReference;
+    public StudentLoginModel(FirebaseDatabase firebaseDatabase) {
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        this.databaseReference = firebaseDatabase.getReference();
     }
 
     public void authenticateUser(String username, String password, OnUserAuthenticationListener listener) {
@@ -27,7 +42,7 @@ public class StudentLoginModel {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Student student = dataSnapshot.getValue(Student.class);
                 if (student != null && student.passwordHash.equals(hashedPassword)) {
-                    listener.onSuccess(username);
+                    listener.onSuccess();
                 } else {
                     listener.onFailure();
                 }
@@ -60,7 +75,7 @@ public class StudentLoginModel {
 
 
     public interface OnUserAuthenticationListener {
-        void onSuccess(String username);
+        void onSuccess();
         void onFailure();
     }
 }

@@ -1,12 +1,12 @@
 package com.example.b07project.Student_Register_MVP;
 
 public class StudentRegisterPresenter {
-    private StudentRegisterView view;
+    private StudentRegisterModel.StudentRegisterViewInterface view;
     private StudentRegisterModel model;
 
-    public StudentRegisterPresenter(StudentRegisterView view) {
+    public StudentRegisterPresenter(StudentRegisterModel.StudentRegisterViewInterface view, StudentRegisterModel model) {
         this.view = view;
-        this.model = new StudentRegisterModel();
+        this.model = model;
     }
 
     public void registerStudent(String username, String fullName, String password) {
