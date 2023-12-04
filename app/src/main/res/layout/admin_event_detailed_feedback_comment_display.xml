@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Detailed Comment"
+            android:text="@string/detailed_comment"
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:textSize="20sp" />
@@ -53,7 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="Rating: "
+                    android:text="@string/rating"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -62,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:text="rating"
+                    android:text="@string/ratingPlaceholder"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:padding="5dp"
-                android:text="Comment: "
+                android:text="@string/comment"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
-                android:text="comment"
+                android:text="@string/commentPlaceholder"
                 android:textSize="20sp" />
 
         </LinearLayout>
