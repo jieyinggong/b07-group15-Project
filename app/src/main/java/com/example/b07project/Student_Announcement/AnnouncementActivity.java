@@ -73,7 +73,7 @@ public class AnnouncementActivity extends AppCompatActivity {
                     return;
                 }
                 Information info = dataList.get(position);
-                Intent intent = new Intent(AnnouncementActivity.this, DetailedItemActivity.class);
+                Intent intent = new Intent(AnnouncementActivity.this, DetailedAnnouncementItemActivity.class);
                 intent.putExtra("SUBJECT", info.subject);
                 intent.putExtra("CONTENT", info.content);
                 startActivity(intent);
