@@ -24,29 +24,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/CStext"
-        android:textSize="34sp"
+        android:textStyle="bold"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/back_bar"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintVertical_bias="0.1" />
 
     <Button
         android:id="@+id/msButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
         android:text="@string/majorSpec"
+        android:textSize="20sp"
+        android:layout_marginTop="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/back_bar" />
 
     <Button
         android:id="@+id/minorButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="60dp"
         android:text="@string/minor"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/msButton" />
