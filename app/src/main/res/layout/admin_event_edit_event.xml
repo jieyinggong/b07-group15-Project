@@ -46,8 +46,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="0dp"
-                android:text="Edit Event"
-                android:textSize="30sp" />
+                android:text="@string/edit_event"
+                android:textStyle="bold"
+                android:textSize="25sp" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linearLayoutCompat_2"
@@ -66,7 +67,7 @@
                     android:layout_marginStart="5dp"
                     android:background="@null"
                     android:gravity="clip_vertical"
-                    android:hint="Subject"
+                    android:hint="@string/subjectTxt"
                     android:inputType="text"
                     android:autofillHints="text"
                     android:maxLines="1" />
@@ -91,7 +92,7 @@
                     android:inputType="datetime"
                     android:focusable="false"
                     android:autofillHints="datetime"
-                    android:hint="Select Start Date and Time" />
+                    android:hint="@string/select_start_date_and_time" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -113,7 +114,7 @@
                     android:inputType="datetime"
                     android:focusable="false"
                     android:autofillHints="datetime"
-                    android:hint="Select End Date and Time"  />
+                    android:hint="@string/select_end_date_and_time"  />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -134,7 +135,7 @@
                     android:layout_marginStart="5dp"
                     android:background="@null"
                     android:gravity="clip_vertical"
-                    android:hint="Location"
+                    android:hint="@string/enter_location"
                     android:inputType="text"
                     android:autofillHints="text"
                     android:maxLines="1" />
@@ -158,7 +159,7 @@
                     android:layout_marginStart="5dp"
                     android:background="@null"
                     android:gravity="clip_vertical"
-                    android:hint="Participants Limit"
+                    android:hint="@string/participants_limit"
                     android:inputType="number"
                     android:autofillHints="number"
                     android:maxLines="1" />
@@ -188,7 +189,7 @@
                     android:layout_marginStart="5dp"
                     android:background="@null"
                     android:gravity="clip_vertical"
-                    android:hint="Enter Your Event Description"
+                    android:hint="@string/enter_your_event_description"
                     android:autofillHints="text"
                     android:inputType="textMultiLine" />
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -197,7 +198,7 @@
                 android:id="@+id/submit_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="submit"
+                android:text="@string/submit"
                 android:textSize="20sp"
                 android:layout_gravity="center_horizontal" />
         </LinearLayout>

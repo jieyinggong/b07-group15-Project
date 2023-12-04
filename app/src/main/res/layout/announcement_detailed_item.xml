@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Announcement"
+            android:text="@string/announcement"
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:textSize="20sp" />
@@ -44,7 +44,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
-        android:text="Subject"
+        android:text="@string/subjectTxt"
         android:textStyle="bold"
         android:textSize="24sp" />
 
@@ -61,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="16dp"
-        android:text="Content"
+        android:text="@string/contentTxt"
         android:padding="5dp"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/divider"

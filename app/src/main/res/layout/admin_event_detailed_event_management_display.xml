@@ -43,7 +43,7 @@
                 android:id="@+id/subject_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Subject"
+                android:text="@string/subjectTxt"
                 android:textStyle="bold"
                 android:textSize="25sp"
                 android:layout_marginTop="15dp"
@@ -60,7 +60,7 @@
                     android:id="@+id/textView18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Start Time: "
+                    android:text="@string/start_time"
                     android:textStyle="bold"
                     android:layout_marginStart="10dp"
                     android:textSize="20sp" />
@@ -69,8 +69,9 @@
                     android:id="@+id/start_time_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="start_time"
+                    android:text="@string/start_timePlaceholder"
                     android:textSize="20sp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginEnd="10dp"/>
             </LinearLayout>
 
@@ -84,7 +85,7 @@
                     android:id="@+id/textView19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="End Time: "
+                    android:text="@string/end_time"
                     android:layout_marginStart="10dp"
                     android:textStyle="bold"
                     android:textSize="20sp" />
@@ -93,8 +94,9 @@
                     android:id="@+id/end_time_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="end_time"
+                    android:text="@string/end_timePlaceholder"
                     android:textSize="20sp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginEnd="10dp"/>
             </LinearLayout>
             <LinearLayout
@@ -109,14 +111,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:textStyle="bold"
-                    android:text="Location: "
+                    android:text="@string/location"
                     android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/location_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="location"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/locationPlaceholder"
                     android:textSize="20sp"
                     android:layout_marginEnd="10dp"/>
             </LinearLayout>
@@ -133,15 +136,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:textStyle="bold"
-                    android:text="Current Available Space: "
+                    android:text="@string/current_available_space"
                     android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/space_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="space"
+                    android:text="@string/spacePlaceholder"
                     android:textSize="20sp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginEnd="10dp"/>
             </LinearLayout>
 
@@ -151,7 +155,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:textStyle="bold"
-                android:text="Description: "
+                android:text="@string/description"
                 android:textSize="20sp"
                 android:padding="5dp" />
 
@@ -159,7 +163,7 @@
                 android:id="@+id/description_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="description"
+                android:text="@string/descriptionPlaceholder"
                 android:textSize="20sp"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"/>
@@ -171,7 +175,7 @@
         android:id="@+id/feedback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View Feedback"
+        android:text="@string/click_to_view_feedback"
         android:textSize="20sp"
         android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
